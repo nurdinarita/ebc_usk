@@ -25,21 +25,32 @@
           </div>
           <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" name="slug" class="form-control" id="slug" value="{{ isset($newsData) ? $newsData->slug : old('slug') }}">
+            <input type="text" name="slug" class="form-control" id="slug" value="{{ isset($newsData) ? $newsData->slug : old('slug') }}" autocomplete="off">
         </div>
           <div class="mb-3">
               <label for="image" class="form-label">Gambar</label><br>
               <input type="file" id="image" name="image">
           </div>
           <div class="mb-3">
+            <textarea name="news" id="news" rows="10" cols="80" value="">
+                {{ isset($newsData) ? $newsData->news : old('news') }}
+            </textarea>
+          </div>
+          {{-- <div class="mb-3">
               <input id="news" type="hidden" name="news" value="{{ isset($newsData) ? $newsData->news : old('news') }}">
               <trix-editor input="news"></trix-editor>
-          </div>
+          </div> --}}
           <button type="submit" class="btn btn-primary mb-5">Submit</button>
       </form>
   </div>
 </div>
 
+
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace( 'news' );
+</script>
 @endsection
 
 @section('trix-editor')

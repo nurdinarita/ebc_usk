@@ -264,10 +264,10 @@
         <div class="col-sm-6 col-lg-4 col-xl-4">
             <div class="single-home-blog">
                 <div class="card">
-                    <img src="{{ url('storage/'.$item->image) }}" class="card-img-top" alt="blog" height="300px">
+                    <img src="{{ url('storage/'.$item->image) }}" class="card-img-top" alt="blog" height="300px" width="100%">
                     <div class="card-body">
-                        <span class="dot">{{ $item->updated_at->format('d, M Y') }}</span>
-                        <a href="single-blog.html"><h5 class="card-title">{{ $item->title }}</h5></a>
+                        <span class="dot">{{ $item->updated_at->format('d M Y') }}</span>
+                        <a href="{{ url('/'.$item->slug) }}"><h5 class="card-title">{{ $item->title }}</h5></a>
                         <a href=""></a>
                         <!-- <ul>
                             <li> <span class="ti-layers"></span>Sports news</li>
@@ -278,6 +278,13 @@
             </div>
         </div>
         @endforeach
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <nav class="blog-pagination justify-content-center d-flex">
+                {{ $news->links() }}
+            </nav>
+        </div>
     </div>
 </div>
 </section>

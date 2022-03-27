@@ -28,6 +28,9 @@
   <!--Trix Editor-->
   <link rel="stylesheet" type="text/css" href="{{ url('trix-editor/trix.css') }}">
   <script type="text/javascript" src="{{ url('trix-editor/trix.js') }}"></script>
+
+  <!-- CK Editor -->
+  <script src="{{ url('ckeditor/ckeditor.js') }}"></script>
   <style>
     trix-toolbar [data-trix-button-group="file-tools"] {
         display: none;

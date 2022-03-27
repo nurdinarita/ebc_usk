@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AdminController;
@@ -35,11 +36,7 @@ Route::get('/home', function () {
 	return redirect($route);
 });
 
-Route::get('/', function () {
-    return view('index')->with([
-		'news' => App\Models\News::all()->take(3)
-	]);
-});
+
 
 Route::get('/about', function () {
     return view('about');
@@ -72,5 +69,6 @@ Route::middleware('admin')->group(function () {
 	Route::get('/teams/{id}', [TeamController::class, 'show']);
 	Route::resource('/news', NewsController::class);
 });
-
+Route::get('/', [PostController::class, 'index']);
+Route::get('/{slug}', [PostController::class, 'show']);
 

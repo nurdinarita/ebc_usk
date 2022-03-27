@@ -25,13 +25,21 @@
   <link rel="stylesheet" href="{{ url('plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ url('plugins/summernote/summernote-bs4.min.css') }}">
+  <!--Trix Editor-->
+  <link rel="stylesheet" type="text/css" href="{{ url('trix-editor/trix.css') }}">
+  <script type="text/javascript" src="{{ url('trix-editor/trix.js') }}"></script>
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"] {
+        display: none;
+    }
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ url('img/logo.png') }}" alt="AdminLTELogo" height="100" width="300">
+    <img class="animation__wobble" src="{{ url('img/logo.png') }}" height="100" width="300">
   </div>
 
   <!-- Navbar -->
@@ -67,7 +75,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ url('/') }}" class="brand-link">
       <img src="{{ url('img/favicon.png') }}" alt="EBC USK" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">EBC USK</span>
     </a>
@@ -99,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/users') }}" class="nav-link {{ ($title === 'Users' || $title === 'Add User') ? 'active' : '' }}">
+            <a href="{{ url('/users') }}" class="nav-link {{ ($title === 'Users' || $title === 'Add User' || $title === 'Edit User') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users
@@ -115,13 +123,12 @@
             </a>
           </li>
 
-          <li class="nav-header">EVENT</li>
+          <li class="nav-header">POSTINGAN</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <a href="{{ url('/news') }}" class="nav-link {{ ($title === 'Berita' || $title === 'Post Berita' || $title === 'Edit Berita' || $title === 'Detail Post Berita') ? 'active' : '' }}">
+              <i class="nav-icon far fa-newspaper"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Berita
               </p>
             </a>
           </li>
@@ -580,5 +587,8 @@
 {{-- <script src="{{ url('dist/js/demo.js') }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('dist/js/pages/dashboard.js') }}"></script>
+
+@yield('delete')
+@yield('trix-editor')
 </body>
 </html>

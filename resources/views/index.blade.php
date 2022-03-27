@@ -260,13 +260,14 @@
         </div>
     </div>
     <div class="row">
+        @foreach($news as $item)
         <div class="col-sm-6 col-lg-4 col-xl-4">
             <div class="single-home-blog">
                 <div class="card">
-                    <img src="https://akcdn.detik.net.id/community/media/visual/2022/02/10/timnas-basket-1_43.jpeg?w=250&q=100" class="card-img-top" alt="blog">
+                    <img src="{{ url('storage/'.$item->image) }}" class="card-img-top" alt="blog" height="300px">
                     <div class="card-body">
-                        <span class="dot">12 march, 2019</span>
-                        <a href="single-blog.html"><h5 class="card-title">Kualifikasi FIBA World Cup 2023: Timnas Basket RI Wajib Main Lebih Baik</h5></a>
+                        <span class="dot">{{ $item->updated_at->format('d, M Y') }}</span>
+                        <a href="single-blog.html"><h5 class="card-title">{{ $item->title }}</h5></a>
                         <a href=""></a>
                         <!-- <ul>
                             <li> <span class="ti-layers"></span>Sports news</li>
@@ -276,56 +277,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog">
-                <div class="card">
-                    <img src="https://akcdn.detik.net.id/community/media/visual/2022/02/01/indonesia-patriots_43.jpeg?w=250&q=100" class="card-img-top" alt="blog">
-                    <div class="card-body">
-                        <span class="dot">12 march, 2019</span>
-                        <a href="single-blog.html"><h5 class="card-title">Badai COVID-19 Berlalu, Indonesia Patriots Rileks Tatap IBL 2022
-                            </h5></a>
-                        <a href=""></a>
-                        <!-- <ul>
-                            <li> <span class="ti-layers"></span>Sports news</li>
-                            <li> <span class="ti-comments"></span>2 Comments</li>
-                        </ul> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog">
-                <div class="card">
-                    <img src="https://akcdn.detik.net.id/community/media/visual/2022/01/18/indonesia-patriots_43.jpeg?w=250&q=100" class="card-img-top" alt="blog">
-                    <div class="card-body">
-                        <span class="dot">12 march, 2019</span>
-                        <a href="single-blog.html"><h5 class="card-title">IBL Setop Laga 2 Hari demi Antisipasi Penyebaran COVID-19</h5></a>
-                        <a href=""></a>
-                        <!-- <ul>
-                            <li> <span class="ti-layers"></span>Sports news</li>
-                            <li> <span class="ti-comments"></span>2 Comments</li>
-                        </ul> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog d-none d-sm-block d-lg-none">
-                <div class="card">
-                    <img src="img/blog/blog_4.png" class="card-img-top" alt="blog">
-                    <div class="card-body">
-                        <span class="dot">12 march, 2019</span>
-                        <a href="single-blog.html"><h5 class="card-title">Dictumst iaculis mauris egestas Nibh
-                        netus mauris suscipit.</h5></a>
-                        <a href=""></a>
-                        <!-- <ul>
-                            <li> <span class="ti-layers"></span>Sports news</li>
-                            <li> <span class="ti-comments"></span>2 Comments</li>
-                        </ul> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 </section>

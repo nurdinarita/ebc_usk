@@ -5,7 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UserController;
-
+use App\Http\Controllers\Admin\NewsController;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,11 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('check_slug', function () {
+    $slug = SlugService::createSlug(App\Models\News::class, 'slug', request('title'));
+    return response()->json(['slug' => $slug]);
+});
+
 Route::get('/home', function () {
 	if(auth()->check()){
 		if(auth()->user()->is_admin == 1){
@@ -30,7 +36,9 @@ Route::get('/home', function () {
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->with([
+		'news' => App\Models\News::all()->take(3)
+	]);
 });
 
 Route::get('/about', function () {
@@ -50,7 +58,7 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
 Route::middleware('user')->group(function () {
-	Route::get('/register', [TeamController::class, 'form']);
+	Route::get('/register', [TeamController::class, 'register']);
 	Route::post('/register', [TeamController::class, 'store']);
 	Route::put('/register/{id}', [TeamController::class, 'update']);
 });
@@ -62,5 +70,7 @@ Route::middleware('admin')->group(function () {
 	Route::resource('/users', UserController::class);
 	Route::get('/teams', [TeamController::class, 'index']);
 	Route::get('/teams/{id}', [TeamController::class, 'show']);
+	Route::resource('/news', NewsController::class);
 });
+
 

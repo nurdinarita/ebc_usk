@@ -21,6 +21,7 @@
  <section class="team_member section_padding padding_less_40">
     <div class="container">
        <div class="row">
+          {{-- Content Card Pemain --}}
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -31,7 +32,7 @@
                             <h3>15</h3>
                          </a>
                          <a href="blog.html">
-                            <h5 class="card-title">Rocky Benard</h5>
+                            <h5 class="card-title">Rocky </h5>
                          </a>
                          <p>Right Defender</p>
                       </div>
@@ -50,6 +51,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -79,6 +81,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -108,6 +111,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -137,6 +141,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -166,6 +171,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -195,6 +201,7 @@
                 </div>
              </div>
           </div>
+
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -224,6 +231,7 @@
                 </div>
              </div>
           </div>
+          
           <div class="col-sm-6 col-lg-3">
              <div class="single_team_member single-home-blog">
                 <div class="card">
@@ -253,6 +261,7 @@
                 </div>
              </div>
           </div>
+
        </div>
     </div>
  </section>

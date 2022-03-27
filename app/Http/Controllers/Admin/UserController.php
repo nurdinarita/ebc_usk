@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -76,6 +77,9 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        //
+        User::where('id', $user->id)->delete();
+        Team::where('user_id', $user->id)->delete();
+
+        return redirect('/users')->with('status', 'Data Berhasil Dihapus');
     }
 }

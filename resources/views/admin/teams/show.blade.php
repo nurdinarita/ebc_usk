@@ -20,10 +20,17 @@
         </div>
         <div class="row">
           <div class="col-md-7">
-            <p class="card-subtitle mt-2">Pelatih : {{ $team->coach_name }}</p>
-            <p class="card-subtitle mt-2">Kota : {{ $team->coach_nik }}</p>
+            <p class="card-subtitle mt-2"><img src="{{ url('storage/'.$team->manager_photo) }}" width="80px" alt=""></p>
             <p class="card-subtitle mt-2">Manager : {{ $team->manager_name }}</p>
             <p class="card-subtitle mt-2">NIK Manager : {{ $team->manager_nik }}</p>
+            <p class="card-subtitle mt-3"><img src="{{ url('storage/'.$team->coach_photo) }}" width="80px" alt=""></p>
+            <p class="card-subtitle mt-2">Pelatih : {{ $team->coach_name }}</p>
+            <p class="card-subtitle mt-2">NIK Pelatih : {{ $team->coach_nik }}</p>
+            <p class="card-subtitle mt-2">Lisensi Pelatih : {{ $team->coach_lisense }}</p>
+            <p class="card-subtitle mt-3"><img src="{{ url('storage/'.$team->assistant_coach_photo) }}" width="80px" alt=""></p>
+            <p class="card-subtitle mt-2">Asisten Pelatih : {{ $team->assistant_coach }}</p>
+            <p class="card-subtitle mt-2">NIK Asisten Pelatih : {{ $team->assistant_coach_nik }}</p>
+            <p class="card-subtitle mt-2">Lisensi Asisten Pelatih : {{ $team->assistant_coach_lisense }}</p>
           </div>
           <div class="col-md-5">
             <p class="card-subtitle mt-2">Alamat : {{ $team->address }}</p>
@@ -54,7 +61,11 @@
         <th scope="row">{{ $i }}</th>
         <td>{{ $team['p_name_'.$i] }}</td>
         <td>{{ $team['p_nik_'.$i]}}</td>
-        <td class="col-2"><img src="{{ url('storage/'.$team['p_photo_'.$i])}}" width="30%"></td>
+        <td class="col-2">
+          @if(isset($team['p_photo_'.$i]) != '')
+          <img src="{{ url('storage/'.$team['p_photo_'.$i])}}" width="100%">
+          @endif
+        </td>
       </tr>
       @endfor
       

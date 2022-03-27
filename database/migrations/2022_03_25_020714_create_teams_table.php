@@ -35,7 +35,7 @@ class CreateTeamsTable extends Migration
             $table->string('manager_nik');
             $table->string('manager_photo');
 
-            for($i = 1; $i <= 10; $i++){
+            for($i=1; $i<=10; $i++){
                 $table->string('p_name_'.$i)->nullable();
                 $table->string('p_nik_'.$i)->nullable();
                 $table->string('p_photo_'.$i)->nullable();

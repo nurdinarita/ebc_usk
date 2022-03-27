@@ -2,7 +2,7 @@
 
 @section('container')
 
-{{-- <?php print_r($errors->all()); ?> --}}
+<?php print_r($errors->all()); ?>
 <!-- Start banner Area -->
 <!--::breadcrumb part start::-->
 <section class="breadcrumb breadcrumb_bg">
@@ -189,7 +189,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="mt-3">
-                                    <label for="p_nik_{{ $i }}"><h6>NIK Pemain 1</h6></label>
+                                    <label for="p_nik_{{ $i }}"><h6>NIK Pemain {{ $i }}</h6></label>
                                     <input type="text" name="p_nik_{{ $i }}" id="p_nik_{{ $i }}" placeholder="NIK Pemain {{ $i }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIK Pemain {{ $i }}'"
                                      class="single-input" value="{{ isset($team) ? $team['p_nik_'.$i] : old('p_nik_'.$i) }}">
                                 </div>

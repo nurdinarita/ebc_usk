@@ -54,11 +54,9 @@ class TeamController extends Controller
             'manager_nik' => 'required',
             'manager_photo' => 'required|image',
         ];
-
         $validatedData = $this->validate($request, $validate_array);
-        
         // Validasi Pemain Jika 3:3
-        if($request->category === "3 : 3"){
+        if($validatedData['category'] === "3 : 3"){
             for($i=1;$i<=3;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required';
@@ -67,7 +65,7 @@ class TeamController extends Controller
         }
         
         //Validasi Pemain Jika 5:5
-        if($request->category === "5 : 5"){
+        if($validatedData['category'] === "5 : 5"){
             for($i=1;$i<=5;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required';
@@ -75,11 +73,17 @@ class TeamController extends Controller
             }
         }
 
-        // Validasi Pemain 3:3/5:5 Keatas
-        for($i;$i<=10;$i++){
+        // Validasi Pemain Lanjut Validate 3 atau 5 Keatas jika diisi 
+        for($i ;$i<=10;$i++){
+            if($request['p_name_'.$i] || $request['p_nik_'.$i] || $request['p_photo_'.$i]){
+                $validate_array['p_name_'.$i]  = 'required';
+                $validate_array['p_nik_'.$i] = 'required';
+                $validate_array['p_photo_'.$i] = 'required|image';
+            }else{
                 $validate_array['p_name_'.$i]  = '';
                 $validate_array['p_nik_'.$i] = '';
                 $validate_array['p_photo_'.$i] = '';
+            }
         }
 
         $validatedData = $this->validate($request, $validate_array);
@@ -106,7 +110,6 @@ class TeamController extends Controller
                 $validatedData['p_photo_'.$i] = $request->file('p_photo_'.$i)->store('player_photo');
             }          
         }
-
         $validatedData['user_id'] = auth()->user()->id;
         
         Team::create($validatedData);
@@ -127,29 +130,30 @@ class TeamController extends Controller
             'school' => 'required',
             'category' => 'required',
             'team_name' => 'required',
-            'logo' => 'image',
+            'logo' => 'required|image',
             'address' => 'required',
             'city' => 'required',
-            'document' => 'file',
+            'document' => 'required|file',
             'coach_name' => 'required',
             'coach_nik' => 'required',
             'coach_lisense' => 'required',
-            'coach_photo' => 'image',
-            'assistant_coach' => 'required',
+            'coach_photo' => 'required|image',
+            'assistant_coach' => 'required|required',
             'assistant_coach_nik' => 'required',
             'assistant_coach_lisense' => 'required',
-            'assistant_coach_photo' => 'image',
+            'assistant_coach_photo' => 'required|image',
             'manager_name' => 'required',
             'manager_nik' => 'required',
-            'manager_photo' => 'image',
+            'manager_photo' => 'required|image',
         ];
-        $validatedData = $this->validate(request(), $validate_array);
+        $validatedData = $this->validate($request, $validate_array);
+        
         // Validasi Pemain Jika 3:3
         if(request()->category === "3 : 3"){
             for($i=1;$i<=3;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required';
-                $validate_array['p_photo_'.$i] = 'image';
+                $validate_array['p_photo_'.$i] = 'required|image';
             }
         }
         
@@ -158,15 +162,21 @@ class TeamController extends Controller
             for($i=1;$i<=5;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required';
-                $validate_array['p_photo_'.$i] = 'image';
+                $validate_array['p_photo_'.$i] = 'required|image';
             }
         }
 
-        // Validasi Pemain 3:3/5:5 Keatas
-        for($i;$i<=10;$i++){
+        // Validasi Pemain Lanjut Validate 3 atau 5 Keatas jika diisi 
+        for($i ;$i<=10;$i++){
+            if($request['p_name_'.$i] || $request['p_nik_'.$i] || $request['p_photo_'.$i]){
+                $validate_array['p_name_'.$i]  = 'required';
+                $validate_array['p_nik_'.$i] = 'required';
+                $validate_array['p_photo_'.$i] = 'required|image';
+            }else{
                 $validate_array['p_name_'.$i]  = '';
                 $validate_array['p_nik_'.$i] = '';
                 $validate_array['p_photo_'.$i] = '';
+            }
         }
 
         $validatedData = $this->validate(request(), $validate_array);

@@ -65,7 +65,7 @@
                 <div class="row align-items-center">
                   <div class="col-md-4 col-xl-6">
                       <div id="logo">
-                          <a href="index.html"><img src="img/Logo.png" alt="" title="" /></a>
+                          <a href="{{ url('/') }}"><img src="img/Logo.png" alt="" title="" /></a>
                       </div>
                   </div>
                   <div class="col-md-8 col-xl-6">
@@ -77,9 +77,6 @@
                         
                         @can('user')
                         <a href="{{ url('/register') }}" class="register_icon"><i class="ti-arrow-right"></i>REGISTER</a>
-                        <form action="{{ url('/logout') }}" method="post" style="position: relative;">@csrf
-                            <button class="btn btn-sm">LOGOUT</a></button>
-                        </form>
                         @endcan
                         @can('admin')
                         <a href="{{ url('/dashboard') }}" class="register_icon"><i class="ti-arrow-right"></i>DASHBOARD</a>
@@ -136,6 +133,11 @@
                                         </li>
                                         <li><a href="#"><i class="ti-instagram"></i></a></li>
                                         <li><a href="#"><i class="ti-skype"></i></a></li>
+                                        @can('user')
+                                        <form action="{{ url('/logout') }}" method="post" class="d-inline">@csrf
+                                            <li><button type="submit" class="btn text-secondary" style="font-size: 15px;"><i class="ti-shift-right"></i> LOGOUT</button></li>
+                                        </form>
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>

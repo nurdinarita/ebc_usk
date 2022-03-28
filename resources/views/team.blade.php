@@ -20,24 +20,22 @@
  <!-- player info part start-->
  <section class="team_member section_padding padding_less_40">
     <div class="container">
-       <div class="row">
+       <div class="row d-flex justify-content-center">
           {{-- Content Card Pemain --}}
-          @foreach ($teams as $player)
+          @foreach ($teams as $team)
           @for($i=1; $i<=10; $i++)
-            @if($player['p_name_'.$i])
+            @if($team['p_name_'.$i])
             <div class="col-sm-6 col-lg-3">
                <div class="single_team_member single-home-blog">
                   <div class="card">
-                     <img src="{{ url('storage/'.$player['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
+                     <img src="{{ url('storage/'.$team['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
                      <div class="card-body">
                         <div class="tean_content">
-                           <a href="#" class="blog_item_date">
-                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/'.$player['logo']) }}"></h3>
-                           </a>
-                           <a href="blog.html">
-                              <h5 class="card-title">{{ $player['p_name_'.$i] }}</h5>
-                           </a>
-                           <p>Player {{ $i }}</p>
+                           <div class="blog_item_date">
+                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/'.$team['logo']) }}"></h3>
+                           </div>  
+                           <h5 class="card-title">{{ $team['p_name_'.$i] }}</h5>
+                           <p>{{ $team->team_name }}</p>
                         </div>
                         <div class="tean_right_content">
                            <div class="header_social_icon">

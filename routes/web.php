@@ -7,6 +7,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\EventController;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,7 @@ Route::middleware('admin')->group(function () {
 	Route::get('/teams', [TeamController::class, 'index']);
 	Route::get('/teams/{id}', [TeamController::class, 'show']);
 	Route::resource('/news', NewsController::class);
+	Route::resource('/event', EventController::class);
 });
 Route::get('/', [PostController::class, 'index']);
 Route::get('/team', [PostController::class, 'team']);

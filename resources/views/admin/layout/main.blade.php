@@ -135,6 +135,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('/event') }}" class="nav-link {{ Request::is('event') ? 'active' : '' }}">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Event
+              </p>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>

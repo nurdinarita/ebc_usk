@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Models\Team;
 
 class PostController extends Controller
 {
@@ -17,15 +18,24 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
+    public function team()
     {
-        //
+        $team = Team::orderBy('id', 'desc')->paginate(1);
+        return view('team')->with([
+            'title' => 'Team',
+            'teams' => $team
+        ]);
     }
 
-    public function store(Request $request)
+    public function blog()
     {
-        //
+        $news = News::orderBy('id', 'desc')->paginate(3);
+        return view('blog')->with([
+            'title' => 'Blog',
+            'news' => $news
+        ]);
     }
+
 
     public function show($slug)
     {
@@ -36,16 +46,4 @@ class PostController extends Controller
         ]);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-    public function update(Request $request, $id)
-    {
-        //
-    }
-    public function destroy($id)
-    {
-        //
-    }
 }

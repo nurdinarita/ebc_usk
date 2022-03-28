@@ -54,6 +54,8 @@ class TeamController extends Controller
             'manager_nik' => 'required',
             'manager_photo' => 'required|image',
         ];
+
+        $validatedData = $this->validate($request, $validate_array);
         
         // Validasi Pemain Jika 3:3
         if($request->category === "3 : 3"){
@@ -141,7 +143,7 @@ class TeamController extends Controller
             'manager_nik' => 'required',
             'manager_photo' => 'image',
         ];
-        
+        $validatedData = $this->validate(request(), $validate_array);
         // Validasi Pemain Jika 3:3
         if(request()->category === "3 : 3"){
             for($i=1;$i<=3;$i++){

@@ -21,20 +21,36 @@
           @endif
           <div class="mb-3">
               <label for="title" class="form-label">Judul</label>
-              <input type="text" class="form-control" id="title" name="title" value="{{ isset($newsData) ? $newsData->title : old('title') }}">
+              <input type="text" class="form-control @if($errors->has('title')) is-invalid @endif" id="title" name="title" value="{{ isset($newsData) ? $newsData->title : old('title') }}">
+              @if($errors->has('title'))
+              <div class="invalid-feedback">
+                {{ $errors->first('title') }}
+              </div>
+              @endif
           </div>
           <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" name="slug" class="form-control" id="slug" value="{{ isset($newsData) ? $newsData->slug : old('slug') }}" autocomplete="off">
+            <input type="text" name="slug" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" value="{{ isset($newsData) ? $newsData->slug : old('slug') }}" autocomplete="off">
+            @if($errors->has('slug'))
+            <div class="invalid-feedback">
+                {{ $errors->first('slug') }}
+            </div>
+            @endif
         </div>
           <div class="mb-3">
               <label for="image" class="form-label">Gambar</label><br>
               <input type="file" id="image" name="image">
+              @if($errors->has('image'))
+              <p class="text-danger" style="font-size: 12px;">{{ $errors->first('image') }}</p>
+              @endif
           </div>
           <div class="mb-3">
-            <textarea name="news" id="news" rows="10" cols="80" value="">
+            <textarea name="news" id="news" rows="10" cols="80">
                 {{ isset($newsData) ? $newsData->news : old('news') }}
             </textarea>
+            @if($errors->has('news'))
+            <p class="text-danger" style="font-size: 12px;">{{ $errors->first('news') }}</p>
+            @endif
           </div>
           {{-- <div class="mb-3">
               <input id="news" type="hidden" name="news" value="{{ isset($newsData) ? $newsData->news : old('news') }}">

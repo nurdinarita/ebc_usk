@@ -42,13 +42,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/team', function () {
-    return view('team');
-});
-
-Route::get('/blog', function () {
-    return view('blog');
-});
 
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
@@ -70,5 +63,9 @@ Route::middleware('admin')->group(function () {
 	Route::resource('/news', NewsController::class);
 });
 Route::get('/', [PostController::class, 'index']);
+Route::get('/team', [PostController::class, 'team']);
+Route::get('/blog', [PostController::class, 'blog']);
 Route::get('/{slug}', [PostController::class, 'show']);
+Route::get('blog/{slug}', [PostController::class, 'show']);
+
 

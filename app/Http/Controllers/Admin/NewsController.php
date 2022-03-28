@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -39,6 +40,8 @@ class NewsController extends Controller
             $validatedData['image'] = request()->file('image')->store('news-image');
         }  
 
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->news, 300));
+
         News::create($validatedData);
         return redirect('/news')->with('status', 'Berita Berhasil Dipost'); 
     }
@@ -64,12 +67,20 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $news = News::all()->where('id', $id)->first();
-        $validatedData = $request->validate([
+        $rules = [
             'title' => 'required',
-            'slug' => 'required',
             'image' => 'image|max:2000',
             'news' => 'required'
-        ]);
+        ];
+
+        if($request->slug != $news->slug){
+            $rules['slug'] = 'required|unique:news'; 
+        }
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->news, 300));
+
+        $validatedData = $request->validate($rules);
+
+
         if(request()->file('image')){
             Storage::delete([$news->image]);
             $validatedData['image'] = request()->file('image')->store('news-image');
@@ -81,6 +92,7 @@ class NewsController extends Controller
 
     public function destroy($id)
     {
-        //
+        News::where('id', $id)->delete();
+        return redirect('/news')->with('status', 'Postingan Berita Berhasil Dihapus');
     }
 }

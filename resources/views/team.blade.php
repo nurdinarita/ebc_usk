@@ -22,247 +22,45 @@
     <div class="container">
        <div class="row">
           {{-- Content Card Pemain --}}
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_1.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Rocky </h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_2.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Adult Malerd</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_3.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Rocky Benard</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_4.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Jimmy Cartoon</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_1.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Jimmy Cartoon</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_2.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Adult Malerd</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_3.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Rocky Benard</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-3">
-             <div class="single_team_member single-home-blog">
-                <div class="card">
-                   <img src="img/team/team_4.png" class="card-img-top" alt="blog">
-                   <div class="card-body">
-                      <div class="tean_content">
-                         <a href="#" class="blog_item_date">
-                            <h3>15</h3>
-                         </a>
-                         <a href="blog.html">
-                            <h5 class="card-title">Rocky Benard</h5>
-                         </a>
-                         <p>Right Defender</p>
-                      </div>
-                      <div class="tean_right_content">
-                         <div class="header_social_icon">
-                            <ul>
-                               <li><a href="#"><i class="ti-facebook"></i></a></li>
-                               <li>
-                                  <a href="#"> <i class="ti-twitter"></i></a>
-                               </li>
-                               <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
+          @foreach ($teams as $player)
+          @for($i=1; $i<=10; $i++)
+            @if($player['p_name_'.$i])
+            <div class="col-sm-6 col-lg-3">
+               <div class="single_team_member single-home-blog">
+                  <div class="card">
+                     <img src="{{ url('storage/'.$player['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
+                     <div class="card-body">
+                        <div class="tean_content">
+                           <a href="#" class="blog_item_date">
+                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/'.$player['logo']) }}"></h3>
+                           </a>
+                           <a href="blog.html">
+                              <h5 class="card-title">{{ $player['p_name_'.$i] }}</h5>
+                           </a>
+                           <p>Player {{ $i }}</p>
+                        </div>
+                        <div class="tean_right_content">
+                           <div class="header_social_icon">
+                              <ul>
+                                 <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                 <li>
+                                    <a href="#"> <i class="ti-twitter"></i></a>
+                                 </li>
+                                 <li><a href="#"><i class="ti-instagram"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            @endif
+          @endfor
+          @endforeach
        </div>
+         <nav class="blog-pagination justify-content-center d-flex" style="margin-top: -20px;">
+            {{ $teams->links() }}
+         </nav>
     </div>
  </section>
  <!-- about part start-->

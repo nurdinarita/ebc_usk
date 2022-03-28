@@ -24,131 +24,32 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="blog_left_sidebar">
-                    <!-- <article class="blog_item">
-                      <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="img/blog/single_blog_1.png" alt="">
-                        <a href="#" class="blog_item_date">
-                          <h3>15</h3>
-                          <p>Jan</p>
-                        </a>
-                      </div>
-                      
-                      <div class="blog_details">
-                          <a class="d-inline-block" href="single-blog.html">
-                              <h2>Google inks pact for new 35-storey office</h2>
-                          </a>
-                          <p>That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.</p>
-                          <ul class="blog-info-link">
-                            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                          </ul>
-                      </div>
-                    </article> -->
-                    
+                <div class="blog_left_sidebar">             
+                    @foreach($news as $item)
                     <article class="blog_item">
                       <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="https://assetd.kompas.id/LT3UxPMvY5irMOPEFuRZsUAPjhA=/1024x683/https://asset.kgnewsroom.com/photo/pre/2021/12/05/b4c407df-8e1c-44e5-8aba-57cd122d84bd_jpg.jpg" alt="">
+                        <img class="card-img rounded-0" src="{{ url('storage/'.$item->image) }}" alt="" height="400">
                         <a href="#" class="blog_item_date">
-                          <h3>15</h3>
-                          <p>Jan</p>
+                          <h3>{{ $item->created_at->format('d') }}</h3>
+                          <p>{{ $item->created_at->format('M') }}</p>
                         </a>
                       </div>
                       
                       <div class="blog_details">
-                          <a class="d-inline-block" href="single-blog.html">
-                              <h2>Timnas Basket Bawa Kombinasi Pemain Muda dan Senior</h2>
+                          <a class="d-inline-block" href="{{ url('/blog/'.$item->slug) }}">
+                              <h2>{{ $item->title }}</h2>
                           </a>
-                          <p>That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.</p>
+                          <p>{!! substr($item->news,0,300) !!}</p>
                           <ul class="blog-info-link">
                             <!-- <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
                             <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li> -->
                           </ul>
                       </div>
                     </article>
-
-                    <!-- <article class="blog_item">
-                      <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="img/blog/single_blog_3.png" alt="">
-                        <a href="#" class="blog_item_date">
-                          <h3>15</h3>
-                          <p>Jan</p>
-                        </a>
-                      </div>
-                      
-                      <div class="blog_details">
-                          <a class="d-inline-block" href="single-blog.html">
-                              <h2>Google inks pact for new 35-storey office</h2>
-                          </a>
-                          <p>That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.</p>
-                          <ul class="blog-info-link">
-                            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                          </ul>
-                      </div>
-                    </article> -->
-
-                    <article class="blog_item">
-                      <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="https://asset.indosport.com/article/image/q/80/327697/timnas_basket_indonesia-169.jpg?w=730&h=487" alt="">
-                        <a href="#" class="blog_item_date">
-                          <h3>15</h3>
-                          <p>Jan</p>
-                        </a>
-                      </div>
-                      
-                      <div class="blog_details">
-                          <a class="d-inline-block" href="single-blog.html">
-                              <h2>Resmi! PP Perbasi Tunjuk Manajer Baru untuk Timnas Basket Indonesia</h2>
-                          </a>
-                          <p>That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.</p>
-                          <ul class="blog-info-link">
-                            <!-- <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li> -->
-                          </ul>
-                      </div>
-                    </article>
-
-                    <article class="blog_item">
-                      <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="https://asset.indosport.com/article/image/q/80/338647/kevin_durant_kyrie_irving_dan_james_harden-169.jpg?w=730&h=487" alt="">
-                        <a href="#" class="blog_item_date">
-                          <h3>15</h3>
-                          <p>Jan</p>
-                        </a>
-                      </div>
-                      
-                      <div class="blog_details">
-                          <a class="d-inline-block" href="single-blog.html">
-                              <h2>Lepas James Harden, Brooklyn Nets Akhiri Proyek 'Big 3' dengan Rapor Merah</h2>
-                          </a>
-                          <p>That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.</p>
-                          <ul class="blog-info-link">
-                            <!-- <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li> -->
-                          </ul>
-                      </div>
-                    </article>
+                    @endforeach
 
                     <nav class="blog-pagination justify-content-center d-flex">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        {{ $news->links() }}
                     </nav>
                 </div>
             </div>
@@ -167,48 +68,6 @@
                           <button class="button rounded-0 primary-bg text-white w-100" type="submit">Search</button>
                         </form>
                     </aside>
-
-                    <!-- <aside class="single_sidebar_widget post_category_widget">
-                      <h4 class="widget_title">Category</h4>
-                      <ul class="list cat-list">
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Resaurant food</p>
-                                  <p>(37)</p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Travel news</p>
-                                  <p>(10)</p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Modern technology</p>
-                                  <p>(03)</p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Product</p>
-                                  <p>(11)</p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Inspiration</p>
-                                  <p>21</p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="d-flex">
-                                  <p>Health Care (21)</p>
-                                  <p>09</p>
-                              </a>
-                          </li>
-                      </ul>
-                    </aside> -->
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Recent Post</h3>

@@ -395,6 +395,9 @@
 <!--================Blog Area end =================-->
 
 <script>
-
+var ol = document.querySelector('div.blog_details ol');
+ol.style.color = 'grey';
+ol.style.fontSize = '15px';
+console.log(ol);
 </script>
 @endsection

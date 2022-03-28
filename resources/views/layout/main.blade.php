@@ -30,9 +30,29 @@
         div.navbar-collapse ul.navbar-nav li.nav-item  a.active {
             color: #ff8b23;
         }
-        input.is-invalid{
+        input.is-invalid, select.is-invalid{
             /* background-color: rgb(243, 189, 189); */
             border: 1px solid rgb(238, 173, 173);
+        }
+        div.blog_details ol{
+            color: grey;
+            font-size: 15px;
+        }
+        div.blog_details ul.blog-info-link li{
+            color: grey;
+            font-size: 15px;
+            list-style-type: none;
+            margin-bottom: 0;
+            margin-left: 0;
+        }
+        div.blog_details ul li{
+            color: grey;
+            font-size: 15px;
+            list-style-type: disc;
+            margin-left: 35px;
+        }
+        div.blog_details ul{
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -57,7 +77,7 @@
                         
                         @can('user')
                         <a href="{{ url('/register') }}" class="register_icon"><i class="ti-arrow-right"></i>REGISTER</a>
-                        <form action="{{ url('/logout') }}" method="post" style="position: relative; right: -300px;">@csrf
+                        <form action="{{ url('/logout') }}" method="post" style="position: relative;">@csrf
                             <button class="btn btn-sm">LOGOUT</a></button>
                         </form>
                         @endcan

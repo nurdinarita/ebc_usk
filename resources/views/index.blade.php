@@ -93,7 +93,7 @@
         <div class="col-sm-6 col-lg-4 col-xl-4">
             <div class="single-home-blog">
                 <div class="card">
-                    <img src="{{ url('storage/'.$item->image) }}" class="card-img-top" alt="blog" height="300px" width="100%">
+                    <img src="{{ url('storage/news-image/'.$item->image) }}" class="card-img-top" alt="blog" height="300px" width="100%">
                     <div class="card-body">
                         <span class="dot">{{ $item->updated_at->format('d M Y') }}</span>
                         <a href="{{ url('/'.$item->slug) }}"><h5 class="card-title">{{ $item->title }}</h5></a>

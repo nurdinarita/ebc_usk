@@ -24,7 +24,7 @@
         <div class="col-lg-8 posts-list">
             <div class="single-post">
             <div class="feature-img text-center">
-                <img src="{{ url('storage/'.$news->image) }}" alt="" height="400" width="100%">
+                <img src="{{ url('storage/news-image/'.$news->image) }}" alt="" height="400" width="100%">
             </div>
             <div class="blog_details">
                 <h2>

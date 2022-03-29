@@ -61,40 +61,44 @@
             <div class="navigation-area">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                        @if(isset($prevContent))
                         <div class="thumb">
-                        <a href="#">
-                        <img class="img-fluid" src="img/post/preview.png" alt="">
+                        <a href="{{ url('blog/'.$prevContent->slug) }}">
+                        <img class="img-fluid" src="{{ url('storage/news-image/'.$prevContent->image) }}" alt="" width="80px">
                         </a>
                         </div>
                         <div class="arrow">
-                        <a href="#">
+                        <a href="{{ url('blog/'.$prevContent->slug) }}">
                         <span class="lnr text-white ti-arrow-left"></span>
                         </a>
                         </div>
                         <div class="detials">
                         <p>Prev Post</p>
-                        <a href="#">
-                            <h4>Space The Final Frontier</h4>
+                        <a href="{{ url('blog/'.$prevContent->slug) }}">
+                            <h4>{{ $prevContent->title }}</h4>
                         </a>
                         </div>
+                        @endif
                     </div>
                     <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                        @if(isset($nextContent))
                         <div class="detials">
                         <p>Next Post</p>
-                        <a href="#">
-                            <h4>Telescopes 101</h4>
+                        <a href="{{ url('blog/'.$nextContent->slug) }}">
+                            <h4>{{ $nextContent->title }}</h4>
                         </a>
                         </div>
                         <div class="arrow">
-                        <a href="#">
+                        <a href="{{ url('blog/'.$nextContent->slug) }}">
                                 <span class="lnr text-white ti-arrow-right"></span>
                         </a>
                         </div>
                         <div class="thumb">
-                        <a href="#">
-                        <img class="img-fluid" src="img/post/next.png" alt="">
+                        <a href="{{ url('blog/'.$nextContent->slug) }}">
+                        <img class="img-fluid" src="{{ url('storage/news-image/'.$nextContent->image) }}" alt="" width="80px" height="80px">
                         </a>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -277,42 +281,18 @@
             </aside> -->
             <aside class="single_sidebar_widget popular_post_widget">
                 <h3 class="widget_title">Recent Post</h3>
-                <div class="media post_item">
-                    <img src="img/post/post_1.png" alt="post">
-                    <div class="media-body">
-                        <a href="single-blog.html">
-                        <h3>From life was you fish...</h3>
-                        </a>
-                        <p>January 12, 2019</p>
+                @foreach($recent_news as $item)
+                    <div class="media post_item">
+                        <img src="{{ url('storage/news-image/'.$item['image']) }}" alt="post" width="80px" height="80px">
+                        <div class="media-body">
+                            <a href="{{ url('blog/'.$item->slug) }}">
+                                <h3>{{$item['title']}}</h3>
+                            </a>
+                            <p>{{ $item['created_at']->format('d M Y, G:i:s' ) }} WIB</p>
+                        </div>
                     </div>
-                </div>
-                <div class="media post_item">
-                    <img src="img/post/post_2.png" alt="post">                              
-                    <div class="media-body">
-                        <a href="single-blog.html">
-                        <h3>The Amazing Hubble</h3>
-                        </a>
-                        <p>02 Hours ago</p>
-                    </div>
-                </div>
-                <div class="media post_item">
-                    <img src="img/post/post_3.png" alt="post">                              
-                    <div class="media-body">
-                        <a href="single-blog.html">
-                        <h3>Astronomy Or Astrology</h3>
-                        </a>
-                        <p>03 Hours ago</p>
-                    </div>
-                </div>
-                <div class="media post_item">
-                    <img src="img/post/post_4.png" alt="post">
-                    <div class="media-body">
-                        <a href="single-blog.html">
-                        <h3>Asteroids telescope</h3>
-                        </a>
-                        <p>01 Hours ago</p>
-                    </div>
-                </div>
+                @endforeach
+
             </aside>
             <!-- <aside class="single_sidebar_widget tag_cloud_widget">
                 <h4 class="widget_title">Tag Clouds</h4>

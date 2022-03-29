@@ -38,7 +38,7 @@
                         <div class="mt-5">
                             <div class="form-select" >
                                 <label for="school"><h6>Asal Instansi</h6></label>
-                                <select name="school" id="school">
+                                <select name="school" id="school" required>
                                     <option value="">Pilih Instansi</option>
                                     <option value="SMP" @if(isset($team) && $team->school === 'SMP' || old('school') === 'SMP') {{ 'selected' }} @endif>SMP</option>
                                     <option value="SMA" @if(isset($team) && $team->school === 'SMA' || old('school') === 'SMA') {{ 'selected' }} @endif>SMA</option>
@@ -50,10 +50,10 @@
                             @if($errors->has('school')) <sup>{{ $errors->first('school') }}</sup><br> @endif
                             <div class="form-select" >
                                 <label for="category"><h6>Kategori</h6></label>
-                                <select name="category" id="category">
+                                <select name="category" id="category" required>
                                     <option value="">Pilih Kategori</option>
-                                    <option value="3 : 3" @if(isset($team) && $team->category === '3 : 3' || old('category') === '3 : 3') {{ 'selected' }} @endif>3 : 3</option>
-                                    <option value="5 : 5" @if(isset($team) && $team->category === '5 : 5' || old('category') === '5 : 5') {{ 'selected' }} @endif>5 : 5</option>
+                                    <option value="3 : 3" @if(isset($team) && $team->category == '3 : 3' || old('category') == '3 : 3') selected @endif>3 : 3</option>
+                                    <option value="5 : 5" @if(isset($team) && $team->category == '5 : 5' || old('category') == '5 : 5') selected @endif>5 : 5</option>
                                 </select>
                             </div>
                         </div>
@@ -61,34 +61,35 @@
                             @if($errors->has('category')) <sup>{{ $errors->first('category') }}</sup><br> @endif
                             <label for="team_name"><h6>Nama Tim</h6></label>
                             <input type="text" name="team_name" id="team_name" placeholder="Nama Tim" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Tim'"
-                                 class="single-input" value="{{ isset($team) ? $team->team_name : old('team_name') }}">
+                                 class="single-input" value="{{ isset($team) ? $team->team_name : old('team_name') }}" required>
                             @if($errors->has('team_name')) <sup>{{ $errors->first('team_name') }}</sup> @endif
                         </div>
                         <div class="mt-3">
                             <label for="team_logo"><h6>Logo Tim</h6></label><br>
-                            <input type="file" name="logo" id="team_logo"><br>
+                            <input type="file" name="logo" id="team_logo" @if(!isset($team)) required @endif><br>
                             @if($errors->has('logo')) <sup>{{ $errors->first('logo') }}</sup> @endif
                         </div>
                         <div class="mt-3">
                             <label for="address"><h6>Alamat</h6></label>
                             <input type="text" name="address" id="address" placeholder="Alamat" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Alamat'"
-                                 class="single-input" value="{{ isset($team) ? $team->address : old('address') }}">
+                                 class="single-input" value="{{ isset($team) ? $team->address : old('address') }}" required>
                             @if($errors->has('address')) <sup>{{ $errors->first('address') }}</sup> @endif
                         </div>
                         <div class="mt-4">
                             <label for="city"><h6>Kota/Kabupaten</h6></label>
                             <div class="form-select" id="default-select">
-                                <select name="city" >
+                                <select name="city" id="city" required>
                                     <option value="">Pilih Kota/Kabupaten</option>
-                                    <option value="Kota Banda Aceh" @if(isset($team) && $team->city === 'Kota Banda Aceh') {{ 'selected' }} @endif>Kota Banda Aceh</option>
-                                    <option value="Kabupaten Aceh Besar" @if(isset($team) && $team->city === 'Kabupaten Aceh Besar') {{ 'selected' }} @endif>Kabupaten Aceh Besar</option>
+                                    @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" @if(isset($team) && $team->city == $city->id || old('city') == $city->id) selected @endif>{{ $city->kab_kota }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             @if($errors->has('city')) <sup>{{ $errors->first('city') }}</sup> @endif
                         </div>
                         <div class="mt-3">
                             <label for="document"><h6>Document</h6></label><br>
-                            <input type="file" name="document" id="document"><br>
+                            <input type="file" name="document" id="document" @if(!isset($team)) required @endif><br>
                             @if($errors->has('document')) <sup>{{ $errors->first('document') }}</sup> @endif
                         </div>
                         <div class="row">
@@ -96,7 +97,7 @@
                                 <div class="mt-5">
                                     <label for="coach_name"><h6>Nama Pelatih</h6></label>
                                     <input type="text" name="coach_name" id="coach_name" placeholder="Nama Pelatih" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Pelatih'"
-                                     class="single-input" value="{{ isset($team) ? $team->coach_name : old('coach_name') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->coach_name : old('coach_name') }}" required>
                                     @if($errors->has('coach_name')) <sup>{{ $errors->first('coach_name') }}</sup> @endif
                                 </div>
                             </div>	
@@ -104,7 +105,7 @@
                                 <div class="mt-5">
                                     <label for="coach_nik"><h6>NIK Pelatih</h6></label>
                                     <input type="text" name="coach_nik" id="coach_nik" placeholder="Coach NIK" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Coach NIK'"
-                                     class="single-input" value="{{ isset($team) ? $team->coach_nik : old('coach_nik') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->coach_nik : old('coach_nik') }}" required>
                                     @if($errors->has('coach_nik')) <sup>{{ $errors->first('coach_nik') }}</sup> @endif
                                 </div>
                             </div>
@@ -114,14 +115,14 @@
                                 <div class="mt-3">
                                     <label for="coach_lisense"><h6>Nomor Lisensi Pelatih</h6></label>
                                     <input type="text" name="coach_lisense" id="coach_lisense" placeholder="Nomor Lisensi Pelatih" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nomor Lisensi Pelatih'"
-                                     class="single-input" value="{{ isset($team) ? $team->coach_lisense : old('coach_lisense') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->coach_lisense : old('coach_lisense') }}" required>
                                      @if($errors->has('coach_lisense')) <sup>{{ $errors->first('coach_lisense') }}</sup> @endif
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="mt-3">
                                     <label for="coach_photo"><h6>Foto Pelatih</h6></label><br>
-                                    <input type="file" name="coach_photo" id="coach_photo" ><br>
+                                    <input type="file" name="coach_photo" id="coach_photo" @if(!isset($team)) required @endif><br>
                                     @if($errors->has('coach_photo')) <sup>{{ $errors->first('coach_photo') }}</sup> @endif
                                 </div>
                             </div>	
@@ -132,7 +133,7 @@
                                 <div class="mt-5">
                                     <label for="assistant_coach"><h6>Nama Asisten Pelatih</h6></label>
                                     <input type="text" name="assistant_coach" id="assistant_coach" placeholder="Nama Asisten Pelatih" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Asisten Pelatih'"
-                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach : old('assistant_coach') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach : old('assistant_coach') }}" required>
                                      @if($errors->has('assistant_coach')) <sup>{{ $errors->first('assistant_coach') }}</sup> @endif
                                 </div>
                             </div>	
@@ -140,7 +141,7 @@
                                 <div class="mt-5">
                                     <label for="assistant_coach_nik"><h6>NIK Asisten Pelatih</h6></label>
                                     <input type="text" name="assistant_coach_nik" id="assistant_coach_nik" placeholder="NIK Asisten Pelatih" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIK Asisten Pelatih'"
-                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach_nik : old('assistant_coach_nik') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach_nik : old('assistant_coach_nik') }}" required>
                                      @if($errors->has('assistant_coach_nik')) <sup>{{ $errors->first('assistant_coach_nik') }}</sup> @endif
                                 </div>
                             </div>
@@ -150,14 +151,14 @@
                                 <div class="mt-3">
                                     <label for="assistant_coach_lisense"><h6>Nomor Lisensi Asisten Pelatih</h6></label>
                                     <input type="text" name="assistant_coach_lisense" id="assistant_coach_lisense" placeholder="Nomor Lisensi Asisten Pelatih" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nomor Lisensi Asisten Pelatih'"
-                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach_lisense : old('assistant_coach_lisense') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->assistant_coach_lisense : old('assistant_coach_lisense') }}" required>
                                      @if($errors->has('assistant_coach_lisense')) <sup>{{ $errors->first('assistant_coach_lisense') }}</sup> @endif
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="mt-3">
                                     <label for="assistant_coach_photo"><h6>Foto Asisten Pelatih</h6></label><br>
-                                    <input type="file" name="assistant_coach_photo" id="assistant_coach_photo"><br>
+                                    <input type="file" name="assistant_coach_photo" id="assistant_coach_photo" @if(!isset($team)) required @endif><br>
                                     @if($errors->has('assistant_coach_photo')) <sup>{{ $errors->first('assistant_coach_photo') }}</sup> @endif
                                 </div>
                             </div>	
@@ -168,7 +169,7 @@
                                 <div class="mt-5">
                                     <label for="manager_name"><h6>Nama Manager</h6></label>
                                     <input type="text" name="manager_name" id="manager_name" placeholder="Nama Manager" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Manager'"
-                                     class="single-input"value="{{ isset($team) ? $team->manager_name : old('manager_name') }}">
+                                     class="single-input"value="{{ isset($team) ? $team->manager_name : old('manager_name') }}" required>
                                      @if($errors->has('manager_name')) <sup>{{ $errors->first('manager_name') }}</sup> @endif
                                 </div>
                             </div>	
@@ -176,7 +177,7 @@
                                 <div class="mt-5">
                                     <label for="manager_nik"><h6>NIK Manager</h6></label>
                                     <input type="text" name="manager_nik" id="manager_nik" placeholder="NIK Manager" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIK Manager'"
-                                     class="single-input" value="{{ isset($team) ? $team->manager_nik : old('manager_nik') }}">
+                                     class="single-input" value="{{ isset($team) ? $team->manager_nik : old('manager_nik') }}" required>
                                      @if($errors->has('manager_nik')) <sup>{{ $errors->first('manager_nik') }}</sup> @endif
 
                                 </div>
@@ -184,7 +185,7 @@
                             <div class="col-lg-4 col-md-4">
                                 <div class="mt-5">
                                     <label for="manager_photo"><h6>Foto Manager</h6></label><br>
-                                    <input type="file" name="manager_photo" id="manager_photo"><br>
+                                    <input type="file" name="manager_photo" id="manager_photo" @if(!isset($team)) required @endif><br>
                                     @if($errors->has('manager_photo')) <sup>{{ $errors->first('manager_photo') }}</sup> @endif
                                 </div>
                             </div>	
@@ -200,7 +201,7 @@
                                 <div class="mt-3">
                                     <label for="p_name_{{ $i }}"><h6>Nama Pemain {{ $i }}</h6></label>
                                     <input type="text" name="p_name_{{ $i }}" id="p_name_{{ $i }}" placeholder="Nama Pemain {{ $i }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Pemain {{ $i }}'"
-                                     class="single-input" value="{{ isset($team) ? $team['p_name_'.$i] : old('p_name_'.$i) }}">
+                                     class="single-input" value="{{ isset($team['p_name_'.$i]) ? $team['p_name_'.$i] : old('p_name_'.$i) }}">
                                     @if($errors->has('p_name_'.$i)) <sup>{{ $errors->first('p_name_'.$i) }}</sup> @endif
 
                                 </div>
@@ -209,7 +210,7 @@
                                 <div class="mt-3">
                                     <label for="p_nik_{{ $i }}"><h6>NIK Pemain {{ $i }}</h6></label>
                                     <input type="text" name="p_nik_{{ $i }}" id="p_nik_{{ $i }}" placeholder="NIK Pemain {{ $i }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIK Pemain {{ $i }}'"
-                                     class="single-input" value="{{ isset($team) ? $team['p_nik_'.$i] : old('p_nik_'.$i) }}">
+                                     class="single-input" value="{{ isset($team['p_nik_'.$i]) ? $team['p_nik_'.$i] : old('p_nik_'.$i) }}">
                                     @if($errors->has('p_nik_'.$i)) <sup>{{ $errors->first('p_nik_'.$i) }}</sup> @endif
                                 </div>
                             </div>

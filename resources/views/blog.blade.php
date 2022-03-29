@@ -39,7 +39,7 @@
                           <a class="d-inline-block" href="{{ url('/blog/'.$item->slug) }}">
                               <h2>{{ $item->title }}</h2>
                           </a>
-                          <p>{!! substr($item->news,0,300) !!}</p>
+                          <p>{!! substr($item->news,0,300) !!} <a href="{{ url('/blog/'.$item->slug) }}">Read More</a></p>
                           <ul class="blog-info-link">
                             <!-- <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
                             <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li> -->
@@ -75,10 +75,10 @@
                             <div class="media post_item">
                                 <img src="{{ url('storage/news-image/'.$item['image']) }}" alt="post" width="80px" height="80px">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
+                                    <a href="{{ url('blog/'.$item->slug) }}">
                                         <h3>{{$item['title']}}</h3>
                                     </a>
-                                    <p>{{$item['created_at']}}</p>
+                                    <p>{{ $item['created_at']->format('d M Y, G:i:s' ) }} WIB</p>
                                 </div>
                             </div>
                         @endforeach

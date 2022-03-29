@@ -34,10 +34,10 @@
                            <div class="blog_item_date">
                            <h3 style="margin-top: -15px;"><img src="{{ url('storage/teams-logo/'.$team['logo']) }}"></h3>
                            </div>  
-                           <h5 class="card-title">{{ $team['p_name_'.$i] }}</h5>
-                           <p>{{ $team->team_name }}</p>
+                           <h5 class="card-title">{{ substr($team['p_name_'.$i],0, 21) }}</h5>
+                           <p>{{ $team['p_name_'.$i] }}</p>
                         </div>
-                        <div class="tean_right_content">
+                        {{-- <div class="tean_right_content">
                            <div class="header_social_icon">
                               <ul>
                                  <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -47,7 +47,7 @@
                                  <li><a href="#"><i class="ti-instagram"></i></a></li>
                               </ul>
                            </div>
-                        </div>
+                        </div> --}}
                      </div>
                   </div>
                </div>

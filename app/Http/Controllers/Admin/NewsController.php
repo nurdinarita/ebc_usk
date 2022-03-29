@@ -38,8 +38,8 @@ class NewsController extends Controller
 
         if(request()->file('image')){
             // $validatedData['image'] = request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
-            request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
-            $validatedData['image'] = request()->file('image')->getClientOriginalName();
+            request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->hashName());
+            $validatedData['image'] = request()->file('image')->hashName();
         }  
 
         $validatedData['excerpt'] = Str::limit(strip_tags($request->news, 300));
@@ -84,9 +84,9 @@ class NewsController extends Controller
 
 
         if(request()->file('image')){
-            Storage::delete([$news->image]);
-            request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
-            $validatedData['image'] = request()->file('image')->getClientOriginalName();
+            Storage::disk('public')->delete('news-image/'.$news->image);
+            request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->hashName());
+            $validatedData['image'] = request()->file('image')->hashName();
         }
 
         News::where('id', $id)->update($validatedData);

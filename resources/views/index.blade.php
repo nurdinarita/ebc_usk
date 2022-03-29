@@ -59,15 +59,15 @@
                 <img src="img/event2.png" alt="#">
                 <div class="upcoming_event_text">
                     <div class="date">
-                        <h3>15 <span>jun</span> </h3>
+                        <h3>{{ $event->created_at->format('d') }} <span>{{ $event->created_at->format('M') }}</span> </h3>
                     </div>
                     <div class="time">
                         <ul class="list-unstyle">
-                            <li> <span class="ti-time"></span> 12:00 AM - 12:30 AM</li>
-                            <li> <span class="ti-location-pin"></span> Banda Aceh</li>
+                            <li> <span class="ti-time"></span> {{ $event->event_start_date .' - '. $event->event_end_date}}</li>
+                            <li> <span class="ti-location-pin"></span> {{ $event->location }}</li>
                         </ul>
                     </div>
-                    <p>Divided living they're Subdue man also dont. Land morning blessed do that for the best </p>
+                    <p>{{ $event->description }}</p>
                     <a href="{{ url('/register') }}" class="btn_2">REGISTER</a>
                 </div>
             </div>

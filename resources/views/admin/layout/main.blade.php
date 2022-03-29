@@ -136,7 +136,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/event') }}" class="nav-link {{ Request::is('event') ? 'active' : '' }}">
+            <a href="{{ url('/event') }}" class="nav-link {{ Request::is('event') || Request::is('event/create') ? 'active' : '' }}">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event

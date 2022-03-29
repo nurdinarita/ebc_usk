@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Team;
+use App\Models\Event;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
 
     public function index()
     {
+        $event = Event::select('event_name', 'event_image', 'event_start_date', 'event_end_date', 'location', 'description', 'created_at')->orderBy('id', 'desc')->take(1)->first();
+        // return Carbon::now();
         $news = News::latest()->paginate(3);
         return view('index')->with([
             'title' => 'Home',
-            'news' => $news
+            'news' => $news,
+            'event' => $event
         ]);
     }
 

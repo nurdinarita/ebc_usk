@@ -91,36 +91,36 @@ class TeamController extends Controller
         $validatedData = $this->validate($request, $validate_array);
 
         if($request->file('logo')){
-            $request->file('logo')->storePubliclyAs('public/teams-logo', $request->file('logo')->getClientOriginalName());
-            $validatedData['logo'] = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storePubliclyAs('public/teams-logo', $request->file('logo')->hashName());
+            $validatedData['logo'] = $request->file('logo')->hashName();
         }
         if($request->file('document')){
             // $validatedData['document'] = $request->file('document')->store('teams-document');
-            $request->file('document')->storePubliclyAs('public/teams-document', $request->file('document')->getClientOriginalName());
-            $validatedData['document'] = $request->file('document')->getClientOriginalName();
+            $request->file('document')->storePubliclyAs('public/teams-document', $request->file('document')->hashName());
+            $validatedData['document'] = $request->file('document')->hashName();
         }
 
         if($request->file('coach_photo')){
             // $validatedData['coach_photo'] = $request->file('coach_photo')->store('coach-photo');
-            $request->file('coach_photo')->storePubliclyAs('public/coach-photo', $request->file('coach_photo')->getClientOriginalName());
-            $validatedData['coach_photo'] = $request->file('coach_photo')->getClientOriginalName();
+            $request->file('coach_photo')->storePubliclyAs('public/coach-photo', $request->file('coach_photo')->hashName());
+            $validatedData['coach_photo'] = $request->file('coach_photo')->hashName();
         }           
         if($request->file('assistant_coach_photo')){
             // $validatedData['assistant_coach_photo'] = $request->file('assistant_coach_photo')->store('assistant-coach-photo');
-            $request->file('assistant_coach_photo')->storePubliclyAs('public/assistant-coach-photo', $request->file('assistant_coach_photo')->getClientOriginalName());
-            $validatedData['assistant_coach_photo'] = $request->file('assistant_coach_photo')->getClientOriginalName();
+            $request->file('assistant_coach_photo')->storePubliclyAs('public/assistant-coach-photo', $request->file('assistant_coach_photo')->hashName());
+            $validatedData['assistant_coach_photo'] = $request->file('assistant_coach_photo')->hashName();
         }           
         if($request->file('manager_photo')){
             // $validatedData['manager_photo'] = $request->file('manager_photo')->store('manager-photo');
-            $request->file('manager_photo')->storePubliclyAs('public/manager-photo', $request->file('manager_photo')->getClientOriginalName());
-            $validatedData['manager_photo'] = $request->file('manager_photo')->getClientOriginalName();
+            $request->file('manager_photo')->storePubliclyAs('public/manager-photo', $request->file('manager_photo')->hashName());
+            $validatedData['manager_photo'] = $request->file('manager_photo')->hashName();
         }
 
         for($i=1;$i<=10; $i++){
             if($request->file('p_photo_'.$i)){
                 // $validatedData['p_photo_'.$i] = $request->file('p_photo_'.$i)->store('player_photo');
-                $request->file('p_photo_'.$i)->storePubliclyAs('public/player-photo', $request->file('p_photo_'.$i)->getClientOriginalName());
-                $validatedData['p_photo_'.$i] = $request->file('p_photo_'.$i)->getClientOriginalName();
+                $request->file('p_photo_'.$i)->storePubliclyAs('public/player-photo', $request->file('p_photo_'.$i)->hashName());
+                $validatedData['p_photo_'.$i] = $request->file('p_photo_'.$i)->hashName();
             }          
         }
         $validatedData['user_id'] = auth()->user()->id;
@@ -232,7 +232,7 @@ class TeamController extends Controller
             if(request()->file('p_photo_'.$i)){
                 Storage::disk('public')->delete('player-photo/'.$team->manager_photo);
                 // $validatedData['p_photo_'.$i] = request()->file('p_photo_'.$i)->store('player_photo');
-                $request->file('p_photo_'.$i)->storePubliclyAs('public/player-photo', $request->file('p_photo_'.$i)->getClientOriginalName());
+                $request->file('p_photo_'.$i)->storePubliclyAs('public/player-photo', $request->file('p_photo_'.$i)->hashName());
                 $validatedData['p_photo_'.$i] = $request->file('p_photo_'.$i)->hashName();
             }          
         }

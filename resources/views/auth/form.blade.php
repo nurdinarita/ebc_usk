@@ -88,8 +88,13 @@
                             @if($errors->has('city')) <sup>{{ $errors->first('city') }}</sup> @endif
                         </div>
                         <div class="mt-3">
+<<<<<<< HEAD
                             <label for="document"><h6>Document</h6></label><br>
                             <input type="file" name="document" id="document" @if(!isset($team)) required @endif><br>
+=======
+                            <label for="document"><h6>Dokumen Referensi </h6></label><br>
+                            <input type="file" name="document" id="document"><br>
+>>>>>>> c79e4bd4d2763e624bb8cef2a6cfaf222ae5f486
                             @if($errors->has('document')) <sup>{{ $errors->first('document') }}</sup> @endif
                         </div>
                         <div class="row">

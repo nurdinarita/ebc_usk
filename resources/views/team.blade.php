@@ -28,11 +28,11 @@
             <div class="col-sm-6 col-lg-3">
                <div class="single_team_member single-home-blog">
                   <div class="card">
-                     <img src="{{ url('storage/'.$team['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
+                     <img src="{{ url('storage/player-photo/'.$team['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
                      <div class="card-body">
                         <div class="tean_content">
                            <div class="blog_item_date">
-                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/'.$team['logo']) }}"></h3>
+                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/teams-logo/'.$team['logo']) }}"></h3>
                            </div>  
                            <h5 class="card-title">{{ $team['p_name_'.$i] }}</h5>
                            <p>{{ $team->team_name }}</p>

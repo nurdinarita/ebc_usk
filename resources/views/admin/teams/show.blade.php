@@ -63,7 +63,7 @@
         <td>{{ $team['p_nik_'.$i]}}</td>
         <td class="col-2">
           @if(isset($team['p_photo_'.$i]) != '')
-          <img src="{{ url('storage/'.$team['p_photo_'.$i])}}" width="100%">
+          <img src="{{ url('storage/player-photo/'.$team['p_photo_'.$i])}}" width="100%">
           @endif
         </td>
       </tr>

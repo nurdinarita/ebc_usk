@@ -30,9 +30,11 @@ class PostController extends Controller
     public function blog()
     {
         $news = News::orderBy('id', 'desc')->paginate(3);
+        $recentNews = News::select('title', 'image', 'slug', 'created_at')->orderBy('id', 'desc')->take(4)->get();
         return view('blog')->with([
             'title' => 'Blog',
-            'news' => $news
+            'news' => $news,
+            'recent_news' => $recentNews
         ]);
     }
 

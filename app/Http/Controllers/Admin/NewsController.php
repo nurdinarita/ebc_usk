@@ -37,7 +37,9 @@ class NewsController extends Controller
         ]);
 
         if(request()->file('image')){
-            $validatedData['image'] = request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
+            // $validatedData['image'] = request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
+            request()->file('image')->storePubliclyAs('public/news-image', request()->file('image')->getClientOriginalName());
+            $validatedData['image'] = request()->file('image')->getClientOriginalName();
         }  
 
         $validatedData['excerpt'] = Str::limit(strip_tags($request->news, 300));

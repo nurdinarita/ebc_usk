@@ -28,7 +28,7 @@
                     @foreach($news as $item)
                     <article class="blog_item">
                       <div class="blog_item_img">
-                        <img class="card-img rounded-0" src="{{ url('storage/'.$item->image) }}" alt="" height="400">
+                        <img class="card-img rounded-0" src="{{ url('storage/news-image/'.$item->image) }}" alt="" height="400">
                         <a href="#" class="blog_item_date">
                           <h3>{{ $item->created_at->format('d') }}</h3>
                           <p>{{ $item->created_at->format('M') }}</p>
@@ -71,16 +71,18 @@
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                            <img src="img/post/post_1.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>From life was you fish...</h3>
-                                </a>
-                                <p>January 12, 2019</p>
+                        @foreach($recent_news as $item)
+                            <div class="media post_item">
+                                <img src="{{ url('storage/news-image/'.$item['image']) }}" alt="post" width="80px" height="80px">
+                                <div class="media-body">
+                                    <a href="single-blog.html">
+                                        <h3>{{$item['title']}}</h3>
+                                    </a>
+                                    <p>{{$item['created_at']}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="media post_item">
+                        @endforeach
+                        <!-- <div class="media post_item">
                             <img src="img/post/post_2.png" alt="post">                              
                             <div class="media-body">
                                 <a href="single-blog.html">
@@ -106,7 +108,7 @@
                                 </a>
                                 <p>01 Hours ago</p>
                             </div>
-                        </div>
+                        </div> -->
                     </aside>
                     <!-- <aside class="single_sidebar_widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Clouds</h4>

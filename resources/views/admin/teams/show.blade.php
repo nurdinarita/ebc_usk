@@ -7,7 +7,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-10">
-            <img src="{{ url('storage/'.$team->logo) }}" height="80px">
+            <img src="{{ url('storage/teams-logo/'.$team->logo) }}" height="80px">
           </div>
           <div class="col-md-2">
             <a href="{{ url('/teams') }}">Kembali</a>

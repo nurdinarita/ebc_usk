@@ -89,7 +89,9 @@ class TeamController extends Controller
         $validatedData = $this->validate($request, $validate_array);
 
         if($request->file('logo')){
-            $validatedData['logo'] = $request->file('logo')->store('teams-logo');
+            // $validatedData['logo'] = $request->file('logo')->store('teams-logo');
+            $request->file('logo')->storePubliclyAs('public/teams-logo', $request->file('logo')->getClientOriginalName());
+            $validatedData['logo'] = $request->file('logo')->getClientOriginalName();
         }
         if($request->file('document')){
             $validatedData['document'] = $request->file('document')->store('teams-document');
@@ -123,7 +125,7 @@ class TeamController extends Controller
 
 
     // UPdate Database Team
-    public function update($id){
+    public function update(Request $request,$id){
         $team = Team::all()->where('id', $id)->first();
         // Validasi Team
         $validate_array = [
@@ -183,7 +185,9 @@ class TeamController extends Controller
 
         if(request()->file('logo')){
             Storage::delete([$team->logo]);
-            $validatedData['logo'] = request()->file('logo')->store('teams-logo');
+            // $validatedData['logo'] = request()->file('logo')->store('teams-logo');
+            request()->file('logo')->storePubliclyAs('public/teams-logo', request()->file('logo')->getClientOriginalName());
+            $validatedData['logo'] = request()->file('logo')->getClientOriginalName();
         }
         if(request()->file('document')){
             Storage::delete([$team->document]);

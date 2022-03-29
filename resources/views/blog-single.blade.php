@@ -38,11 +38,11 @@
                 {!!  $news->news  !!}
                     
                 
-                <div class="quote-wrapper">
+                <!-- <div class="quote-wrapper">
                     <div class="quotes">
                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.
                     </div>
-                </div>
+                </div> -->
             </div>
             </div>
             <div class="navigation-top">
@@ -277,7 +277,18 @@
             </aside> -->
             <aside class="single_sidebar_widget popular_post_widget">
                 <h3 class="widget_title">Recent Post</h3>
-                <div class="media post_item">
+                @foreach($recent_news as $item)
+                    <div class="media post_item">
+                        <img src="{{ url('storage/news-image/'.$item['image']) }}" alt="post" width="80px" height="80px">
+                        <div class="media-body">
+                            <a href="single-blog.html">
+                                <h3>{{$item['title']}}</h3>
+                            </a>
+                            <p>{{$item['created_at']}}</p>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- <div class="media post_item">
                     <img src="img/post/post_1.png" alt="post">
                     <div class="media-body">
                         <a href="single-blog.html">
@@ -312,7 +323,7 @@
                         </a>
                         <p>01 Hours ago</p>
                     </div>
-                </div>
+                </div> -->
             </aside>
             <!-- <aside class="single_sidebar_widget tag_cloud_widget">
                 <h4 class="widget_title">Tag Clouds</h4>

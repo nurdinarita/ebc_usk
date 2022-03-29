@@ -52,8 +52,8 @@
                                 <label for="category"><h6>Kategori</h6></label>
                                 <select name="category" id="category">
                                     <option value="">Pilih Kategori</option>
-                                    <option value="3 : 3" @if(isset($team) && $team->category === '3 : 3' || old('category') === '3 : 3') {{ 'selected' }} @endif>3 : 3</option>
-                                    <option value="5 : 5" @if(isset($team) && $team->category === '5 : 5' || old('category') === '5 : 5') {{ 'selected' }} @endif>5 : 5</option>
+                                    <option value="3 x 3" @if(isset($team) && $team->category === '3 : 3' || old('category') === '3 : 3') {{ 'selected' }} @endif>3 : 3</option>
+                                    <option value="5 x 5" @if(isset($team) && $team->category === '5 : 5' || old('category') === '5 : 5') {{ 'selected' }} @endif>5 : 5</option>
                                 </select>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                             @if($errors->has('city')) <sup>{{ $errors->first('city') }}</sup> @endif
                         </div>
                         <div class="mt-3">
-                            <label for="document"><h6>Document</h6></label><br>
+                            <label for="document"><h6>Dokumen Referensi </h6></label><br>
                             <input type="file" name="document" id="document"><br>
                             @if($errors->has('document')) <sup>{{ $errors->first('document') }}</sup> @endif
                         </div>

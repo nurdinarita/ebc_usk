@@ -119,7 +119,7 @@
                                         </div>
                                     </li> -->
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="{{ url('/blog') }}">blog</a>
+                                        <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="{{ url('/blog') }}">news</a>
                                     </li>
                                     <!-- <li class="nav-item">
                                         <a href="contact.html" class="nav-link">Contact</a>

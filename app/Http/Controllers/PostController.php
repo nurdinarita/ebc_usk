@@ -42,9 +42,11 @@ class PostController extends Controller
     public function show($slug)
     {
         $news = News::where('slug', $slug)->first();
+        $recentNews = News::select('title', 'image', 'slug', 'created_at')->orderBy('id', 'desc')->take(4)->get();
         return view('blog-single')->with([
             'title' => 'Single Blog',
-            'news' => $news
+            'news' => $news,
+            'recent_news' => $recentNews
         ]);
     }
 

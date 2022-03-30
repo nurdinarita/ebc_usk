@@ -79,7 +79,7 @@
                         <a href="{{ url('/register') }}" class="register_icon"><i class="ti-arrow-right"></i>REGISTER</a>
                         @endcan
                         @can('admin')
-                        <a href="{{ url('/dashboard') }}" class="register_icon"><i class="ti-arrow-right"></i>DASHBOARD</a>
+                        <a href="{{ url('dashboard') }}" class="register_icon"><i class="ti-arrow-right"></i>DASHBOARD</a>
                         @endcan
                       </div>
                     </div>

@@ -29,15 +29,15 @@
             </div>
             <div class="mb-3">
               <label for="registration_end_date" class="form-label">Tanggal Terakhir Registrasi</label>
-              <input type="date" class="form-control" id="registration_end_date" placeholder="Tanggal Terakhir Registrasi" name="registration_end_date" value="{{ isset($event) ? $event->registration_end_date : old('registration_end_date') }}">
+              <input type="date" class="form-control" id="registration_end_date" placeholder="Tanggal Terakhir Registrasi" name="registration_end_date" value="{{ isset($event) ? $event->registration_end_date->format('Y-m-d') : old('registration_end_date') }}">
             </div>
             <div class="mb-3">
               <label for="event_start_date" class="form-label">Tanggal Mulai Event</label>
-              <input type="date" class="form-control" id="event_start_date" placeholder="Tanggal Mulai Event" name="event_start_date" value="{{ isset($event) ? $event->event_start_date : old('event_start_date') }}">
+              <input type="date" class="form-control" id="event_start_date" placeholder="Tanggal Mulai Event" name="event_start_date" value="{{ isset($event) ? $event->event_start_date->format('Y-m-d') : old('event_start_date') }}">
             </div>
             <div class="mb-3">
               <label for="event_end_date" class="form-label">Tanggal Berakhir Event</label>
-              <input type="date" class="form-control" id="event_end_date" placeholder="Tanggal Berakhir Event" name="event_end_date" value="{{ isset($event) ? $event->event_end_date : old('event_end_date') }}">
+              <input type="date" class="form-control" id="event_end_date" placeholder="Tanggal Berakhir Event" name="event_end_date" value="{{ isset($event) ? $event->event_end_date->format('Y-m-d') : old('event_end_date') }}">
             </div>
             <div class="mb-3">
               <label for="location" class="form-label">Lokasi Event</label>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Team;
 use App\Models\Event;
-use Carbon\Carbon;
+
 
 class PostController extends Controller
 {
@@ -24,10 +24,18 @@ class PostController extends Controller
 
     public function team()
     {
-        $team = Team::orderBy('id', 'desc')->paginate(1);
+        $team = Team::orderBy('id', 'desc')->paginate(5);
         return view('team')->with([
             'title' => 'Team',
             'teams' => $team
+        ]);
+    }
+    public function showTeam($id)
+    {
+        $teamDetail = Team::all()->where('id', $id)->first();
+        return view('team-detail')->with([
+            'title' => 'Team Detail',
+            'teamDetail' => $teamDetail
         ]);
     }
 

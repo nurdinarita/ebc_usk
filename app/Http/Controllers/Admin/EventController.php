@@ -61,7 +61,8 @@ class EventController extends Controller
         $event = Event::all()->where('id', $id)->first();
         $validatedData = $request->validate([
             'event_name' => 'required',
-            'event_image' => '',
+            'event_image' => 'max:2000',
+            'registration_end_date' => 'required',
             'event_start_date' => 'required',
             'event_end_date' => 'required',
             'location' => 'required',

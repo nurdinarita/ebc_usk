@@ -66,6 +66,7 @@ Route::middleware('admin')->group(function () {
 });
 Route::get('/', [PostController::class, 'index']);
 Route::get('/team', [PostController::class, 'team']);
+Route::get('/team/{id}/show', [PostController::class, 'showTeam']);
 Route::get('/blog', [PostController::class, 'blog']);
 Route::get('/{slug}', [PostController::class, 'show']);
 Route::get('blog/{slug}', [PostController::class, 'show']);

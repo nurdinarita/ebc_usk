@@ -8,8 +8,8 @@
           <div class="col-lg-12">
              <div class="breadcrumb_iner">
                 <div class="breadcrumb_iner_item">
-                   <h1>All Teams</h1>
-                   <p>Home<span>/</span>All Teams</p>
+                   <h1>{{ $teamDetail['team_name'] }}</h1>
+                   <p><a href="{{ url('/team') }}">Home</a><span>/</span>{{ $teamDetail['team_name'] }}<span>/</span>Players</p>
                 </div>
              </div>
           </div>
@@ -21,32 +21,20 @@
  <section class="team_member section_padding padding_less_40">
     <div class="container">
        <div class="row d-flex justify-content-center">
-          <div class="col-md-8">
-             <ul class="list-group">
-               @foreach($teams as $team)
-               <li class="list-group-item d-flex align-items-center">
-                 <img src="{{ url('storage/teams-logo/'.$team->logo) }}" height="80px">
-                 <a href="{{ url('/team/'.$team->id.'/show') }}"><h3 class="ml-5">{{ $team->team_name }}</h3></a>
-                 {{-- <span class="badge badge-primary badge-pill">14</span> --}}
-               </li>
-               @endforeach
-             </ul>
-          </div>
           {{-- Content Card Pemain --}}
-<!--          @foreach ($teams as $team)
-          @for($i=1; $i<=10; $i++)
-            @if($team['p_name_'.$i])
+          @for($i=1; $i<=15; $i++)
+            @if($teamDetail['p_name_'.$i])
             <div class="col-sm-6 col-lg-3">
                <div class="single_team_member single-home-blog">
                   <div class="card">
-                     <img src="{{ url('storage/player-photo/'.$team['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
+                     <img src="{{ url('storage/player-photo/'.$teamDetail['p_photo_'.$i]) }}" class="card-img-top" alt="blog">
                      <div class="card-body">
                         <div class="tean_content">
                            <div class="blog_item_date">
-                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/teams-logo/'.$team['logo']) }}"></h3>
+                           <h3 style="margin-top: -15px;"><img src="{{ url('storage/teams-logo/'.$teamDetail['logo']) }}"></h3>
                            </div>  
-                           <h5 class="card-title">{{ substr($team['p_name_'.$i],0, 21) }}</h5>
-                           <p>{{ $team['p_name_'.$i] }}</p>
+                           <h5 class="card-title">{{ substr($teamDetail['p_name_'.$i],0, 21) }}</h5>
+                           <p>{{ $teamDetail['team_name'] }}</p>
                         </div>
                         {{-- <div class="tean_right_content">
                            <div class="header_social_icon">
@@ -65,11 +53,9 @@
             </div>
             @endif
           @endfor
-          @endforeach --->
        </div>
-         <nav class="blog-pagination justify-content-center d-flex" style="margin-top: -20px;">
-            {{ $teams->links() }}
-         </nav>
+         
+
     </div>
  </section>
  <!-- about part start-->

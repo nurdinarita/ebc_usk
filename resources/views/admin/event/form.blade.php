@@ -28,6 +28,10 @@
               <input type="file"  id="event_image" name="event_image">
             </div>
             <div class="mb-3">
+              <label for="registration_end_date" class="form-label">Tanggal Terakhir Registrasi</label>
+              <input type="date" class="form-control" id="registration_end_date" placeholder="Tanggal Terakhir Registrasi" name="registration_end_date" value="{{ isset($event) ? $event->registration_end_date : old('registration_end_date') }}">
+            </div>
+            <div class="mb-3">
               <label for="event_start_date" class="form-label">Tanggal Mulai Event</label>
               <input type="date" class="form-control" id="event_start_date" placeholder="Tanggal Mulai Event" name="event_start_date" value="{{ isset($event) ? $event->event_start_date : old('event_start_date') }}">
             </div>

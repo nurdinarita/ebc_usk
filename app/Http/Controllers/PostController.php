@@ -13,8 +13,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $event = Event::select('event_name', 'event_image', 'event_start_date', 'event_end_date', 'location', 'description', 'created_at')->orderBy('id', 'desc')->take(1)->first();
-        // return Carbon::now();
+        $event = Event::select('event_name', 'event_image', 'registration_end_date' ,'event_start_date', 'event_end_date', 'location', 'description', 'created_at')->orderBy('id', 'desc')->take(1)->first();
         $news = News::latest()->paginate(3);
         return view('index')->with([
             'title' => 'Home',

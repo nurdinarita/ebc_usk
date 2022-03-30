@@ -31,6 +31,7 @@ class EventController extends Controller
         $validatedData = $request->validate([
             'event_name' => 'required',
             'event_image' => 'required',
+            'registration_end_date' => 'required',
             'event_start_date' => 'required',
             'event_end_date' => 'required',
             'location' => 'required',

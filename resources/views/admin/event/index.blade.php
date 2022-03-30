@@ -20,6 +20,7 @@
                 <th >Nama Event</th>
                 <th >Deskripsi</th>
                 <th class="col-md-3">Gambar</th>
+                <th>Tanggal Terakhir Registrasi</th>
                 <th>Tanggal Mulai Event</th>
                 <th>Tanggal Berakhir Event</th>
                 <th class="col-md-1">Action</th>
@@ -32,6 +33,7 @@
               <td>{{ $event->event_name }}</td>
               <td>{{ $event->description }}</td>
               <td><img src="{{ url('storage/event-image/'.$event->event_image) }}" width="100%"></td>
+              <td>{{ $event->registration_end_date }}</td>
               <td>{{ $event->event_start_date }}</td>
               <td>{{ $event->event_end_date }}</td>
               <td>

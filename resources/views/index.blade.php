@@ -59,15 +59,15 @@
                 <img src="img/event2.png" alt="#">
                 <div class="upcoming_event_text">
                     <div class="date">
-                        <h3>{{ $event->created_at->format('d') }} <span>{{ $event->created_at->format('M') }}</span> </h3>
+                        <h3>{{ isset($event) ? $event->created_at->format('d') : '' }} <span>{{ isset($event) ? $event->created_at->format('M') : '' }}</span> </h3>
                     </div>
                     <div class="time">
                         <ul class="list-unstyle">
-                            <li> <span class="ti-time"></span> {{ $event->event_start_date .' - '. $event->event_end_date}}</li>
-                            <li> <span class="ti-location-pin"></span> {{ $event->location }}</li>
+                            <li> <span class="ti-time"></span> {{ isset($event) ? $event->event_start_date->format('d M') .' - '. $event->event_end_date->format('d M') : ''}}</li>
+                            <li> <span class="ti-location-pin"></span> {{ isset($event) ? $event->location : ''}}</li>
                         </ul>
                     </div>
-                    <p>{{ $event->description }}</p>
+                    <p>{{ isset($event) ? $event->description : '' }}</p>
                     <a href="{{ url('/register') }}" class="btn_2">REGISTER</a>
                 </div>
             </div>

@@ -52,21 +52,21 @@ class TeamController extends Controller
             'match_category' => 'required',
             'player_category' => 'required',
             'team_name' => 'required',
-            'logo' => 'required|image',
+            'logo' => 'required|image|max:5120',
             'address' => 'required',
             'city' => 'required',
             'document' => 'required|file',
             'coach_name' => 'required',
             'coach_nik' => 'required|numeric',
             'coach_lisense' => 'required|numeric',
-            'coach_photo' => 'required|image',
+            'coach_photo' => 'required|image|max:500',
             'assistant_coach' => 'required',
             'assistant_coach_nik' => 'required|numeric',
             'assistant_coach_lisense' => 'required|numeric',
-            'assistant_coach_photo' => 'required|image',
+            'assistant_coach_photo' => 'required|image|max:500',
             'manager_name' => 'required',
             'manager_nik' => 'required|numeric',
-            'manager_photo' => 'required|image',
+            'manager_photo' => 'required|image|max:500',
         ];
         $validatedData = $this->validate($request, $validate_array);
         // Validasi Pemain Jika 3:3
@@ -74,7 +74,7 @@ class TeamController extends Controller
             for($i=1;$i<=3;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'required|image';
+                $validate_array['p_photo_'.$i] = 'required|image|max:500';
             }
         }
         
@@ -83,7 +83,7 @@ class TeamController extends Controller
             for($i=1;$i<=5;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'required|image';
+                $validate_array['p_photo_'.$i] = 'required|image|max:500';
             }
         }
 
@@ -92,7 +92,7 @@ class TeamController extends Controller
             if($request['p_name_'.$i] || $request['p_nik_'.$i] || $request['p_photo_'.$i]){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'required|image';
+                $validate_array['p_photo_'.$i] = 'required|image|max:500';
             }
         }
 
@@ -153,21 +153,21 @@ class TeamController extends Controller
             'match_category' => 'required',
             'player_category' => 'required',
             'team_name' => 'required',
-            'logo' => 'image',
+            'logo' => 'image|max:5120',
             'address' => 'required',
             'city' => 'required',
             'document' => 'file',
             'coach_name' => 'required',
             'coach_nik' => 'required|numeric',
             'coach_lisense' => 'required|numeric',
-            'coach_photo' => 'image',
+            'coach_photo' => 'image|max:500',
             'assistant_coach' => 'required|required',
             'assistant_coach_nik' => 'required|numeric',
             'assistant_coach_lisense' => 'required',
-            'assistant_coach_photo' => 'image',
+            'assistant_coach_photo' => 'image|max:500',
             'manager_name' => 'required',
             'manager_nik' => 'required|numeric',
-            'manager_photo' => 'image',
+            'manager_photo' => 'image|max:500',
         ];
         $validatedData = $this->validate($request, $validate_array);
         
@@ -176,7 +176,7 @@ class TeamController extends Controller
             for($i=1;$i<=3;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'image';
+                $validate_array['p_photo_'.$i] = 'image|max:500';
             }
         }
         
@@ -185,7 +185,7 @@ class TeamController extends Controller
             for($i=1;$i<=5;$i++){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'image';
+                $validate_array['p_photo_'.$i] = 'image|max:500';
             }
         }
 
@@ -194,12 +194,12 @@ class TeamController extends Controller
             if($team['p_name_'.$i] || $team['p_nik_'.$i] || $team['p_photo_'.$i]){
                 $validate_array['p_name_'.$i]  = 'required';
                 $validate_array['p_nik_'.$i] = 'required|numeric';
-                $validate_array['p_photo_'.$i] = 'image';
+                $validate_array['p_photo_'.$i] = 'image|max:500';
             }else{
                 if($request['p_name_'.$i] || $request['p_nik_'.$i] || $request['p_photo_'.$i]){
                     $validate_array['p_name_'.$i]  = 'required';
                     $validate_array['p_nik_'.$i] = 'required';
-                    $validate_array['p_photo_'.$i] = 'required|image';
+                    $validate_array['p_photo_'.$i] = 'required|image|max:500';
                 }
             }
         }

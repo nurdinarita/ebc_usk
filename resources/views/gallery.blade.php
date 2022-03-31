@@ -1,22 +1,22 @@
 @extends('layout.main')
 
 @section('container')
-<!-- banner part start-->
-<section class="banner_part">
-<div class="container">
-    <div class="row align-content-center">
-        <div class="col-lg-7 col-xl-5">
-            <div class="banner_text">
-                <h1><span>Defend &</span><br> 
-            Dominate</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <!-- <a href="#" class="btn_1">learn more <span class="ti-angle-right"></span> </a> -->
+<!--::breadcrumb part start::-->
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h1>Our Gallery</h1>
+                        <p>Home<span>/</span>Gallery</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
-<!-- banner part start-->
+<!--::breadcrumb part start::-->
 
 <!-- about part start-->
 <!-- <section class="about_part">
@@ -42,42 +42,6 @@
 </section> -->
 <!-- about part start-->
 
-@if(isset($event))
-<!-- upcoming_event part start-->
-<section class="upcoming_event section_padding">
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-5">
-            <div class="section_tittle text-center">
-                <!-- <h4>Upcoming Event</h4> -->
-                <h2>Upcoming Event</h2>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 col-xl-12">
-            <div class="upcoming_event_1">
-                <img src="{{ isset($event) ? url('storage/event-image/'.$event->event_image) :url('img/event2.png') }}" alt="#" width="100%" height="600px">
-                <div class="upcoming_event_text">
-                    <div class="date">
-                        <h3>{{ isset($event) ? $event->created_at->format('d') : '' }} <span>{{ isset($event) ? $event->created_at->format('M') : '' }}</span> </h3>
-                    </div>
-                    <div class="time">
-                        <ul class="list-unstyle">
-                            <li> <span class="ti-time"></span> {{ isset($event) ? $event->event_start_date->format('d M') .' - '. $event->event_end_date->format('d M') : ''}}</li>
-                            <li> <span class="ti-location-pin"></span> {{ isset($event) ? $event->location : ''}}</li>
-                        </ul>
-                    </div>
-                    <p>{{ isset($event) ? $event->description : '' }}</p>
-                    <a href="{{ url('/register') }}" class="btn_2">REGISTER</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<!-- upcoming_event part start-->
-@endif
 
 <!-- blog_part part start-->
 <section class="blog_part section_padding">
@@ -86,17 +50,17 @@
         <div class="col-xl-5">
             <div class="section_tittle text-center">
                 <!-- <h4>From The Blog</h4> -->
-                <h2>Latest News & Update</h2>
+                <h2>Gallery</h2>
             </div>
         </div>
     </div>
     <div class="row">
-        @foreach($news as $item)
-        <div class="col-sm-6 col-lg-4 col-xl-4">
+        @foreach($galleries as $gallery)
+        <div class="col-sm-6 col-lg-4 col-xl-4 mb-5">
             <div class="single-home-blog">
                 <div class="card">
-                    <img src="{{ url('storage/news-image/'.$item->image) }}" class="card-img-top" alt="blog" height="300px" width="100%">
-                    <div class="card-body">
+                    <img src="{{ url('storage/galleries-image/'.$gallery->gallery_image) }}" class="card-img-top" alt="blog" height="300px" width="100%">
+                    {{-- <div class="card-body">
                         <span class="dot">{{ $item->updated_at->format('d M Y') }}</span>
                         <a href="{{ url('/blog/'.$item->slug) }}"><h5 class="card-title">{{ $item->title }}</h5></a>
                         <a href=""></a>
@@ -104,7 +68,7 @@
                             <li> <span class="ti-layers"></span>Sports news</li>
                             <li> <span class="ti-comments"></span>2 Comments</li>
                         </ul> -->
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -113,7 +77,7 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <nav class="blog-pagination justify-content-center d-flex">
-                {{ $news->links() }}
+                {{ $galleries->links() }}
             </nav>
         </div>
     </div>

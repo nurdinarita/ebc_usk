@@ -69,9 +69,9 @@ class UserController extends Controller
                 ->update([
                 'password' => $validatedData['password']
                 ]);
-            return redirect('/users')->with('status', 'Data Berhasil Diupdate');
+            return redirect('admin/users')->with('status', 'Data Berhasil Diupdate');
         }else {
-            return redirect('/users/'.$user->id.'/edit')->with('status', 'Konfirmasi Password Tidak Sesuai');
+            return redirect('admin/users/'.$user->id.'/edit')->with('status', 'Konfirmasi Password Tidak Sesuai');
         }
     }
 
@@ -80,6 +80,6 @@ class UserController extends Controller
         User::where('id', $user->id)->delete();
         Team::where('user_id', $user->id)->delete();
 
-        return redirect('/users')->with('status', 'Data Berhasil Dihapus');
+        return redirect('admin/users')->with('status', 'Data Berhasil Dihapus');
     }
 }

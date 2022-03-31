@@ -54,12 +54,15 @@
                 </div>
             </div>
             <div class="col-lg-4">
+                @if(isset($alert))
+                <h5 class="ml-4">{!! $alert !!}</h5>
+                @endif
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
+                        <form action="{{ url('/blog/search') }}" method="get">
                           <div class="form-group">
                             <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder = 'Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                              <input type="text" class="form-control" name="keyword" placeholder = 'Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
                               <div class="input-group-append">
                                 <button class="btn" type="button"><i class="ti-search"></i></button>
                               </div>

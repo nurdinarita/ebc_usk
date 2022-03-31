@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="row">
-    <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('/users/create') }}"><i class="fas fa-plus"></i> Add User</a>
+    <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('admin/users/create') }}"><i class="fas fa-plus"></i> Add User</a>
 </div>
 
 <div class="row">
@@ -27,7 +27,7 @@
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $user->username }}</td>
               <td>
-                  <a class="btn btn-primary btn-sm" href="{{ url('users/'.$user->id.'/edit') }}"><i class="fas fa-edit"></i></a>
+                  <a class="btn btn-primary btn-sm" href="{{ url('admin/users/'.$user->id.'/edit') }}"><i class="fas fa-edit"></i></a>
                   <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modalDelete" data-id="{{ $user->id }}" data-user="{{ $user->username }}"><i class="fas fa-trash"></i></a>
               </td>
             </tr>

@@ -22,7 +22,7 @@ class TeamController extends Controller
 
     public function register(){
         $dateNow = Carbon::now();
-        $dateRegistration = Event::latest()->take(1)->first()->registration_end_date;
+        $event = Event::latest()->take(1)->first();
         $cities = City::all();
         if(auth()->check()){
             if(auth()->user()->is_registered == 1){
@@ -31,13 +31,13 @@ class TeamController extends Controller
                     'team' => $team,
                     'cities' => $cities,
                     'dateNow' => $dateNow,
-                    'dateRegistration' => $dateRegistration
+                    'event' => $event
                 ]);
             }else{
                 return view('auth.form')->with([
                     'cities' => $cities,
                     'dateNow' => $dateNow,
-                    'dateRegistration' => $dateRegistration
+                    'event' => $event
                 ]);
             }
         }

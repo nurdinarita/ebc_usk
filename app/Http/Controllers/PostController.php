@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Team;
 use App\Models\Event;
+use App\Models\Gallery;
 
 
 class PostController extends Controller
@@ -41,13 +42,35 @@ class PostController extends Controller
 
     public function blog()
     {
-        $news = News::orderBy('id', 'desc')->paginate(3);
+        $news = News::orderBy('id', 'desc')->paginate(5);
         $recentNews = News::select('title', 'image', 'slug', 'created_at')->orderBy('id', 'desc')->take(4)->get();
         return view('blog')->with([
             'title' => 'Blog',
             'news' => $news,
             'recent_news' => $recentNews
         ]);
+    }
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $news_data = News::where('title', 'like', "%".$keyword."%")->orwhere('news', 'like', "%".$keyword."%")->paginate(5);
+        $recentNews = News::select('title', 'image', 'slug', 'created_at')->orderBy('id', 'desc')->take(4)->get();
+        if($news_data->count() > 0)
+        {
+            return view('blog')->with([
+                'title' => 'Blog',
+                'news' => $news_data,
+                'recent_news' => $recentNews,
+                'alert' => 'Ditemukan '.$news_data->count().' berita dengan keyword : <strong>'.$keyword.'</strong>',
+            ]);
+        }else{
+            return view('blog')->with([
+                'title' => 'Blog',
+                'news' => $news_data,
+                'recent_news' => $recentNews,
+                'alert' => 'Berita dengan keyword : <strong>'.$keyword.'</strong> tidak ditemukan',
+            ]);
+        }
     }
 
 
@@ -68,6 +91,13 @@ class PostController extends Controller
             'nextContent' => $nextContent,
             'prev' => $prev,
             'prevContent' => $prevContent,
+        ]);
+    }
+    public function gallery()
+    {
+        $galleries = Gallery::orderBy('id', 'desc')->paginate(6);
+        return view('gallery')->with([
+            'galleries' => $galleries
         ]);
     }
 

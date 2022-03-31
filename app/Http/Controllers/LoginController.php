@@ -21,7 +21,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             
             if(auth()->user()->is_admin === 1){
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('admin/dashboard');
             }
 
             return redirect()->intended('/register');

@@ -102,7 +102,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ url('/dashboard') }}" class="nav-link {{ ($title === 'Dashboard') ? 'active' : '' }}">
+            <a href="{{ url('admin/dashboard') }}" class="nav-link {{ ($title === 'Dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -110,7 +110,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/users') }}" class="nav-link {{ ($title === 'Users' || $title === 'Add User' || $title === 'Edit User') ? 'active' : '' }}">
+            <a href="{{ url('admin/users') }}" class="nav-link {{ ($title === 'Users' || $title === 'Add User' || $title === 'Edit User') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users
@@ -118,17 +118,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('teams') }}" class="nav-link {{ ($title === 'Team Terdaftar' || $title === 'Detail Team') ? 'active' : '' }}">
+            <a href="{{ url('admin/teams') }}" class="nav-link {{ ($title === 'Team Terdaftar' || $title === 'Detail Team') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Team Terdaftar
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('admin/event') }}" class="nav-link {{ ($title === 'Event') || ($title === 'Add Event') || ($title === 'Edit Event') ? 'active' : '' }}">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Event
+              </p>
+            </a>
+          </li>
 
           <li class="nav-header">POSTINGAN</li>
           <li class="nav-item">
-            <a href="{{ url('/news') }}" class="nav-link {{ ($title === 'Berita' || $title === 'Post Berita' || $title === 'Edit Berita' || $title === 'Detail Post Berita') ? 'active' : '' }}">
+            <a href="{{ url('admin/news') }}" class="nav-link {{ ($title === 'Berita' || $title === 'Post Berita' || $title === 'Edit Berita' || $title === 'Detail Post Berita') ? 'active' : '' }}">
               <i class="nav-icon far fa-newspaper"></i>
               <p>
                 Berita
@@ -136,10 +144,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/event') }}" class="nav-link {{ Request::is('event') || Request::is('event/create') ? 'active' : '' }}">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <a href="{{ url('admin/gallery') }}" class="nav-link {{ $title === 'Gallery' || $title === 'Add Gallery' ? 'active' : '' }}">
+              <i class="nav-icon far fa-images"></i>
               <p>
-                Event
+                Gallery
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">KONTAK</li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/social-media') }}" class="nav-link {{ ($title === 'Sosial Media') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-hashtag"></i>
+              <p>
+                Sosial Media
               </p>
             </a>
           </li>

@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        <form action="{{ isset($event) ? url('/event/'.$event->id) : url('/event') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ isset($event) ? url('admin/event/'.$event->id) : url('admin/event') }}" method="post" enctype="multipart/form-data">
             @csrf
             @if(isset($event))
             @method('put')

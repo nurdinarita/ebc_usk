@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\GalleryController;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 /*
 |--------------------------------------------------------------------------
@@ -57,18 +58,21 @@ Route::middleware('user')->group(function () {
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('admin')->group(function () {
-	Route::get('/dashboard', [AdminController::class, 'index']);
-	Route::resource('/users', UserController::class);
-	Route::get('/teams', [TeamController::class, 'index']);
-	Route::get('/teams/{id}', [TeamController::class, 'show']);
-	Route::resource('/news', NewsController::class);
-	Route::resource('/event', EventController::class);
+	Route::get('admin/dashboard', [AdminController::class, 'index']);
+	Route::resource('admin/users', UserController::class);
+	Route::get('admin/teams', [TeamController::class, 'index']);
+	Route::get('admin/teams/{id}', [TeamController::class, 'show']);
+	Route::resource('admin/news', NewsController::class);
+	Route::resource('admin/event', EventController::class);
+	Route::resource('admin/gallery', GalleryController::class);
 });
 Route::get('/', [PostController::class, 'index']);
+Route::get('/gallery', [PostController::class, 'gallery']);
 Route::get('/team', [PostController::class, 'team']);
 Route::get('/team/{id}/show', [PostController::class, 'showTeam']);
+Route::get('blog/search', [PostController::class, 'search']);
 Route::get('/blog', [PostController::class, 'blog']);
-Route::get('/{slug}', [PostController::class, 'show']);
+// Route::get('/{slug}', [PostController::class, 'show']);
 Route::get('blog/{slug}', [PostController::class, 'show']);
 
 

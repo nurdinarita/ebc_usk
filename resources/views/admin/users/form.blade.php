@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        <form action="{{ isset($user) ? url('/users/'.$user->id) : url('/users') }}" method="post">
+        <form action="{{ isset($user) ? url('admin/users/'.$user->id) : url('admin/users') }}" method="post">
             @csrf
             @if(isset($user))
             @method('put')

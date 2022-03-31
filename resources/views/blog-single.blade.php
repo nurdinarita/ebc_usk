@@ -225,19 +225,19 @@
         </div>
         <div class="col-lg-4">
             <div class="blog_right_sidebar">
-            <aside class="single_sidebar_widget search_widget">
-                <form action="#">
-                    <div class="form-group">
+                <aside class="single_sidebar_widget search_widget">
+                    <form action="{{ url('/blog/search') }}" method="get">
+                      <div class="form-group">
                         <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder = 'Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                        <div class="input-group-append">
+                          <input type="text" class="form-control" name="keyword" placeholder = 'Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                          <div class="input-group-append">
                             <button class="btn" type="button"><i class="ti-search"></i></button>
+                          </div>
                         </div>
-                        </div>
-                    </div>
-                    <button class="button rounded-0 primary-bg text-white w-100" type="submit">Search</button>
-                </form>
-            </aside>
+                      </div>
+                      <button class="button rounded-0 primary-bg text-white w-100" type="submit">Search</button>
+                    </form>
+                </aside>
             <!-- <aside class="single_sidebar_widget post_category_widget">
                 <h4 class="widget_title">Category</h4>
                 <ul class="list cat-list">

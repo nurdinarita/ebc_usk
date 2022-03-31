@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-8">
-      <form method="post" action="{{ isset($newsData) ? url('/news/'.$newsData->id) : url('/news') }}" enctype="multipart/form-data">
+      <form method="post" action="{{ isset($newsData) ? url('admin/news/'.$newsData->id) : url('admin/news') }}" enctype="multipart/form-data">
           @csrf
           @if(isset($newsData))
           @method('put')

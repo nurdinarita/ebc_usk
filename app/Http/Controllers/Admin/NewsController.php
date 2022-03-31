@@ -45,7 +45,7 @@ class NewsController extends Controller
         $validatedData['excerpt'] = Str::limit(strip_tags($request->news, 300));
 
         News::create($validatedData);
-        return redirect('/news')->with('status', 'Berita Berhasil Dipost'); 
+        return redirect('admin/news')->with('status', 'Berita Berhasil Dipost'); 
     }
     public function show($slug)
     {
@@ -90,12 +90,12 @@ class NewsController extends Controller
         }
 
         News::where('id', $id)->update($validatedData);
-        return redirect('/news')->with('status', 'Berita Berhasil Diedit');
+        return redirect('admin/news')->with('status', 'Berita Berhasil Diedit');
     }
 
     public function destroy($id)
     {
         News::where('id', $id)->delete();
-        return redirect('/news')->with('status', 'Postingan Berita Berhasil Dihapus');
+        return redirect('admin/news')->with('status', 'Postingan Berita Berhasil Dihapus');
     }
 }

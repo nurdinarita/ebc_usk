@@ -44,7 +44,7 @@ class EventController extends Controller
         }
 
         Event::create($validatedData);
-        return redirect('/event')->with('status', 'Event Berhasil Ditambah');
+        return redirect('admin/event')->with('status', 'Event Berhasil Ditambah');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ class EventController extends Controller
         }
 
         Event::where('id', $id)->update($validatedData);
-        return redirect('/event')->with('status', 'Data Event Berhasil Diupdate');
+        return redirect('admin/event')->with('status', 'Data Event Berhasil Diupdate');
     }
 
     public function destroy($id)
@@ -84,6 +84,6 @@ class EventController extends Controller
         $event = Event::all()->where('id', $id)->first();
         Storage::disk('public')->delete('event-image/'.$event->event_image);
         Event::where('id', $id)->delete();
-        return redirect('/event')->with('status', 'Event Berhasil Dihapus');
+        return redirect('admin/event')->with('status', 'Event Berhasil Dihapus');
     }
 }

@@ -79,7 +79,7 @@
                         <a href="{{ url('/register') }}" class="register_icon"><i class="ti-arrow-right"></i>REGISTER</a>
                         @endcan
                         @can('admin')
-                        <a href="{{ url('dashboard') }}" class="register_icon"><i class="ti-arrow-right"></i>DASHBOARD</a>
+                        <a href="{{ url('admin/dashboard') }}" class="register_icon"><i class="ti-arrow-right"></i>DASHBOARD</a>
                         @endcan
                       </div>
                     </div>
@@ -102,6 +102,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}" >About us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::is('gallery') ? 'active' : '' }}" href="{{ url('/gallery') }}" >Gallery</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ Request::is('team') ? 'active' : '' }}" href="{{ url('team') }}">team</a>

@@ -17,7 +17,7 @@
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $team->team_name }}</td>
               <td>
-                  <a class="btn btn-info btn-sm" href="{{ url('teams/'.$team->id) }}"><i class="fas fa-eye"></i></a>
+                  <a class="btn btn-info btn-sm" href="{{ url('admin/teams/'.$team->id) }}"><i class="fas fa-eye"></i></a>
               </td>
             </tr>
             @endforeach

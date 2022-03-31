@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="row">
-    <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('admin/event/create') }}"><i class="fas fa-plus"></i> Add Event</a>
+    <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('admin/gallery/create') }}"><i class="fas fa-plus"></i> Add Gallery</a>
 </div>
 
 <div class="row">
@@ -17,28 +17,19 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th >Nama Event</th>
-                <th >Deskripsi</th>
-                <th class="col-md-3">Gambar</th>
-                <th>Tanggal Terakhir Registrasi</th>
-                <th>Tanggal Mulai Event</th>
-                <th>Tanggal Berakhir Event</th>
-                <th class="col-md-1">Action</th>
+                <th >Nama Sosial Media</th>
+                <th >Link</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-            @foreach($events as $event)
+            @foreach($social as $item)
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $event->event_name }}</td>
-              <td>{{ $event->description }}</td>
-              <td><img src="{{ url('storage/event-image/'.$event->event_image) }}" width="100%"></td>
-              <td>{{ $event->registration_end_date->format('d-m-Y') }}</td>
-              <td>{{ $event->event_start_date->format('d-m-Y') }}</td>
-              <td>{{ $event->event_end_date->format('d-m-Y') }}</td>
+              <td>{{ $item->name }}</td>
+              <td>{{ $item->link }}</td>
               <td>
-                  <a class="btn btn-primary mb-1" href="{{ url('admin/event/'.$event->id.'/edit') }}"><i class="fas fa-edit"></i></a>
-                  <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalDelete" data-id="{{ $event->id }}" data-event="{{ $event->event_name }}"><i class="fas fa-trash"></i></a>
+                  <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalDelete" data-id="{{ $item->id }}" data-name="{{ $item->name }}"><i class="fas fa-trash"></i></a>
               </td>
             </tr>
             @endforeach
@@ -77,12 +68,12 @@
   $('#modalDelete').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var id = button.data('id')
-    var event = button.data('event')
+    var name = button.data('name')
   
     var modal = $(this)
     currLoc = $(location).attr('href')
     modal.find('.modal-footer form').attr("action", currLoc + "/" + id)
-    modal.find('.modal-body').html("Yakin Ingin Menghapus <strong>" + event + "</strong> ?")
+    modal.find('.modal-body').html("Yakin Ingin Menghapus "+ name +"?")
   })
 </script>
 @endsection

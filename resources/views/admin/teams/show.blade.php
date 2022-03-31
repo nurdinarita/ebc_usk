@@ -20,14 +20,16 @@
         </div>
         <div class="row">
           <div class="col-md-7">
-            <p class="card-subtitle mt-2"><img src="{{ url('storage/'.$team->manager_photo) }}" width="80px" alt=""></p>
+            <p class="card-subtitle mt-2">Kategori Pertandingan : {{ $team->match_category }}</p>
+            <p class="card-subtitle mt-2">Kategori Pemain : {{ $team->player_category }}</p>
+            <p class="card-subtitle mt-2"><img src="{{ url('storage/manager-photo/'.$team->manager_photo) }}" width="80px" alt=""></p>
             <p class="card-subtitle mt-2">Manager : {{ $team->manager_name }}</p>
             <p class="card-subtitle mt-2">NIK Manager : {{ $team->manager_nik }}</p>
-            <p class="card-subtitle mt-3"><img src="{{ url('storage/'.$team->coach_photo) }}" width="80px" alt=""></p>
+            <p class="card-subtitle mt-3"><img src="{{ url('storage/coach-photo/'.$team->coach_photo) }}" width="80px" alt=""></p>
             <p class="card-subtitle mt-2">Pelatih : {{ $team->coach_name }}</p>
             <p class="card-subtitle mt-2">NIK Pelatih : {{ $team->coach_nik }}</p>
             <p class="card-subtitle mt-2">Lisensi Pelatih : {{ $team->coach_lisense }}</p>
-            <p class="card-subtitle mt-3"><img src="{{ url('storage/'.$team->assistant_coach_photo) }}" width="80px" alt=""></p>
+            <p class="card-subtitle mt-3"><img src="{{ url('storage/assistant-coach-photo/'.$team->assistant_coach_photo) }}" width="80px" alt=""></p>
             <p class="card-subtitle mt-2">Asisten Pelatih : {{ $team->assistant_coach }}</p>
             <p class="card-subtitle mt-2">NIK Asisten Pelatih : {{ $team->assistant_coach_nik }}</p>
             <p class="card-subtitle mt-2">Lisensi Asisten Pelatih : {{ $team->assistant_coach_lisense }}</p>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\SocialMediaController;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,9 @@ Route::middleware('admin')->group(function () {
 	Route::resource('admin/news', NewsController::class);
 	Route::resource('admin/event', EventController::class);
 	Route::resource('admin/gallery', GalleryController::class);
+	Route::get('admin/social-media', [SocialMediaController::class, 'index']);
+	Route::get('admin/social-media/{socialmedia}/edit', [SocialMediaController::class, 'edit']);
+	Route::put('admin/social-media/{socialmedia}', [SocialMediaController::class, 'update']);
 });
 Route::get('/', [PostController::class, 'index']);
 Route::get('/gallery', [PostController::class, 'gallery']);

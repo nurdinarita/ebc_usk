@@ -2,10 +2,6 @@
 
 @section('container')
 <div class="row">
-    <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('admin/gallery/create') }}"><i class="fas fa-plus"></i> Add Gallery</a>
-</div>
-
-<div class="row">
     <div class="col-md-12">
         @if(session('status'))
         <div class="alert alert-success" role="alert">
@@ -25,11 +21,35 @@
             <tbody>
             @foreach($social as $item)
             <tr>
-              <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $item->name }}</td>
-              <td>{{ $item->link }}</td>
+              <th scope="row">1</th>
+              <td>Facebook</td>
+              <td><a href="{{ $item->facebook }}" target='_blank'>{{ $item->facebook }}</a></td>
               <td>
-                  <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalDelete" data-id="{{ $item->id }}" data-name="{{ $item->name }}"><i class="fas fa-trash"></i></a>
+                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/facebook/edit') }}"><i class="fas fa-edit"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Twitter</td>
+              <td><a href="{{ $item->Twitter }}" target='_blank'>{{ $item->twitter }}</a></td>
+              <td>
+                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/twitter/edit') }}"><i class="fas fa-edit"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Instagram</td>
+              <td><a href="{{ $item->instagram }}" target='_blank'>{{ $item->instagram }}</a></td>
+              <td>
+                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/instagram/edit') }}"><i class="fas fa-edit"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Skype</td>
+              <td><a href="{{ $item->skype }}" target='_blank'>{{ $item->skype }}</a></td>
+              <td>
+                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/skype/edit') }}"><i class="fas fa-edit"></i></a>
               </td>
             </tr>
             @endforeach
@@ -61,19 +81,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('delete')
-<script>
-  $('#modalDelete').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('id')
-    var name = button.data('name')
-  
-    var modal = $(this)
-    currLoc = $(location).attr('href')
-    modal.find('.modal-footer form').attr("action", currLoc + "/" + id)
-    modal.find('.modal-body').html("Yakin Ingin Menghapus "+ name +"?")
-  })
-</script>
 @endsection

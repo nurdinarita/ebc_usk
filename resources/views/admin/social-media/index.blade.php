@@ -2,6 +2,10 @@
 
 @section('container')
 <div class="row">
+  <a class="btn btn-primary btn-sm mb-2 ml-2" href="{{ url('admin/social-media/set') }}"><i class="fas fa-plus"></i> Set Sosial Media</a>
+</div>
+
+<div class="row">
     <div class="col-md-12">
         @if(session('status'))
         <div class="alert alert-success" role="alert">
@@ -15,44 +19,29 @@
                 <th>#</th>
                 <th >Nama Sosial Media</th>
                 <th >Link</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-            @foreach($social as $item)
             <tr>
               <th scope="row">1</th>
               <td>Facebook</td>
-              <td><a href="{{ $item->facebook }}" target='_blank'>{{ $item->facebook }}</a></td>
-              <td>
-                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/facebook/edit') }}"><i class="fas fa-edit"></i></a>
-              </td>
+              <td><a href="{{ isset($social->facebook) ? $social->facebook : ''}}" >{{ isset($social->facebook) ? $social->facebook : '' }}</a></td>
             </tr>
             <tr>
               <th scope="row">2</th>
               <td>Twitter</td>
-              <td><a href="{{ $item->Twitter }}" target='_blank'>{{ $item->twitter }}</a></td>
-              <td>
-                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/twitter/edit') }}"><i class="fas fa-edit"></i></a>
-              </td>
+              <td><a href="{{ isset($social->twitter) ? $social->twitter : '' }}" >{{ isset($social->twitter) ? $social->twitter : '' }}</a></td>
             </tr>
             <tr>
               <th scope="row">3</th>
               <td>Instagram</td>
-              <td><a href="{{ $item->instagram }}" target='_blank'>{{ $item->instagram }}</a></td>
-              <td>
-                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/instagram/edit') }}"><i class="fas fa-edit"></i></a>
-              </td>
+              <td><a href="{{ isset($social->instagram) ? $social->instagram : ''}}" >{{ isset($social->instagram) ? $social->instagram : '' }}</a></td>
             </tr>
             <tr>
               <th scope="row">4</th>
               <td>Skype</td>
-              <td><a href="{{ $item->skype }}" target='_blank'>{{ $item->skype }}</a></td>
-              <td>
-                <a class="btn btn-primary btn-sm" href="{{ url('admin/social-media/skype/edit') }}"><i class="fas fa-edit"></i></a>
-              </td>
+              <td><a href="{{ isset($social->skype) ? $social->skype : '' }}" >{{ isset($social->skype) ? $social->skype : '' }}</a></td>
             </tr>
-            @endforeach
             </tbody>
         </table>
     </div>

@@ -67,8 +67,9 @@ Route::middleware('admin')->group(function () {
 	Route::resource('admin/event', EventController::class);
 	Route::resource('admin/gallery', GalleryController::class);
 	Route::get('admin/social-media', [SocialMediaController::class, 'index']);
-	Route::get('admin/social-media/{socialmedia}/edit', [SocialMediaController::class, 'edit']);
-	Route::put('admin/social-media/{socialmedia}', [SocialMediaController::class, 'update']);
+	Route::get('admin/social-media/set', [SocialMediaController::class, 'form']);
+	Route::post('admin/social-media', [SocialMediaController::class, 'create']);
+	Route::put('admin/social-media/{id}', [SocialMediaController::class, 'update']);
 });
 Route::get('/', [PostController::class, 'index']);
 Route::get('/gallery', [PostController::class, 'gallery']);

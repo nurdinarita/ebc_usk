@@ -153,7 +153,7 @@
           </li>
           <li class="nav-header">KONTAK</li>
           <li class="nav-item">
-            <a href="{{ url('/admin/social-media') }}" class="nav-link {{ ($title === 'Sosial Media' || $title === 'Edit Sosial Media') ? 'active' : '' }}">
+            <a href="{{ url('/admin/social-media') }}" class="nav-link {{ ($title === 'Sosial Media' || $title === 'Set Sosial Media') ? 'active' : '' }}">
               <i class="nav-icon fas fa-hashtag"></i>
               <p>
                 Sosial Media

@@ -130,12 +130,12 @@
                                 </ul>
                                 <div class="header_social_icon d-none d-lg-block">
                                     <ul>
-                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('facebook')->first() }}" target="_blank"><i class="ti-facebook"></i></a></li>
+                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('facebook')->first() }}" ><i class="ti-facebook"></i></a></li>
                                         <li>
-                                            <a href="{{ App\Models\SocialMedia::all()->pluck('twitter')->first() }}" target="_blank"> <i class="ti-twitter"></i></a>
+                                            <a href="{{ App\Models\SocialMedia::all()->pluck('twitter')->first() }}" > <i class="ti-twitter"></i></a>
                                         </li>
-                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('instagram')->first() }}" target="_blank"><i class="ti-instagram"></i></a></li>
-                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('skype')->first() }}" target="_blank"><i class="ti-skype"></i></a></li>
+                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('instagram')->first() }}" ><i class="ti-instagram"></i></a></li>
+                                        <li><a href="{{ App\Models\SocialMedia::all()->pluck('skype')->first() }}" ><i class="ti-skype"></i></a></li>
                                         @can('user')
                                         <form action="{{ url('/logout') }}" method="post" class="d-inline">@csrf
                                             <li><button type="submit" class="btn text-secondary" style="font-size: 15px;"><i class="ti-shift-right"></i> LOGOUT</button></li>

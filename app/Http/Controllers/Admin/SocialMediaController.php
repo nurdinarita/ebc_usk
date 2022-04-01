@@ -11,33 +11,43 @@ class SocialMediaController extends Controller
 
     public function index()
     {
-        $social = SocialMedia::all();
-        return view('admin.social-media.index')->with([
-            'title' => 'Sosial Media',
-            'social' => $social
-        ]);
+        $social = SocialMedia::latest()->first();
+        if(!$social){
+            return view('admin.social-media.index')->with([
+                'title' => 'Sosial Media',
+            ]);
+        }else{
+            return view('admin.social-media.index')->with([
+                'title' => 'Sosial Media',
+                'social' => $social
+            ]);
+        }
     }
 
-    public function create()
+    public function form()
     {
-        return view('admin.social-media.form')->with([
-            'title' => 'Add Sosial Media',
-        ]);
+        $social = (SocialMedia::latest()->first());
+        if(!$social){
+            return view('admin.social-media.form')->with([
+                'title' => 'Set Sosial Media',
+            ]);
+        }else{
+            return view('admin.social-media.form')->with([
+                'title' => 'Set Sosial Media',
+                'social' => $social
+            ]);
+        }
     }
 
-    public function edit($socialmedia)
+    public function create(Request $request)
     {
-        $socialmediaLink = SocialMedia::all()->pluck($socialmedia)->first() ;
-        return view('admin.social-media.form')->with([
-            'title' => 'Edit Sosial Media',
-            'socialmediaName' => $socialmedia,
-            'socialmediaLink' => $socialmediaLink,
-        ]);
+        SocialMedia::create($request->all());
+        return redirect('admin/social-media')->with('status', 'Sosial Media Berhail Diupdate');
     }
 
-    public function update(Request $request,$socialmedia)
+    public function update($id)
     {
-        SocialMedia::find(1)->update($request->all());
+        SocialMedia::find($id)->update(request()->all());
         return redirect('admin/social-media')->with('status', 'Sosial Media Berhail Diupdate');
     }
 

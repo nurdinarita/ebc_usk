@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Team;
 use App\Models\Event;
 use App\Models\Gallery;
+use App\Models\SocialMedia;
 
 
 class PostController extends Controller
@@ -16,6 +17,8 @@ class PostController extends Controller
     {
         $event = Event::select('event_name', 'event_image', 'registration_end_date' ,'event_start_date', 'event_end_date', 'location', 'description', 'created_at')->orderBy('id', 'desc')->take(1)->first();
         $news = News::latest()->paginate(3);
+        $social = (SocialMedia::latest()->first());
+
         return view('index')->with([
             'title' => 'Home',
             'news' => $news,
